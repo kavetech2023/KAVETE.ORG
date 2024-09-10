@@ -1,33 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import Navbar from './Components/Navbar'
+import Hero from './Components/Hero'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+<div className='w-screen min-h-screen fixed z-0 flex justify-center px-6 py-40 pointer-events-none'>
+<div className="absolute inset-0 bg-[url('/grid.svg')] opacity-25"></div>
+<img src="/mesh.svg" className='opacity-15 absolute bottom-1 h-[600px] z-10' alt="" />
+</div> 
+
+<div className='bg-gradient-to-c from-transparent via-transparent to-white absolute inset-0 z-20'></div>
+
+
+<div className='relative z-20'> 
+<Navbar />
+<div className='container mx-auto'>
+<Hero />
+</div>
+</div>
+
+
     </>
   )
 }
