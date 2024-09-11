@@ -5,6 +5,7 @@ import { partnersLogo } from './Data/partners'
 import Slider from './Components/Slider'
 import FeaturesSection from './Components/FeaturesSection'
 import Testimonials from './Components/Testimonials'
+import PricingSection from './Components/PricingSection'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
 <Slider images={partnersLogo} />
 <FeaturesSection />
 <Testimonials />
+<PricingSection />
 </div>
 </div>
 
