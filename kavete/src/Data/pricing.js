@@ -21,7 +21,7 @@ export const pricingPlans = [
             "Unlimited Templates",
             "Unlimited Forms",
             "Unlimited Fields"
-        ]
+        ],isPopular: true
     },
     {
         title: "Enterprise",

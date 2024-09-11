@@ -6,6 +6,7 @@ import Slider from './Components/Slider'
 import FeaturesSection from './Components/FeaturesSection'
 import Testimonials from './Components/Testimonials'
 import PricingSection from './Components/PricingSection'
+import Footer from './Components/Footer'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
 <FeaturesSection />
 <Testimonials />
 <PricingSection />
+<Footer />
 </div>
 </div>
 
