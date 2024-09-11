@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext,useEffect,useState } from 'react'
 import demo from '../assets/demo.png'
 import Tag from './Tag'
+
 
 const Hero = () => {
   return (
@@ -19,11 +20,17 @@ const Hero = () => {
         <h2 className='mt-5 text-gray-600 sm:text-xl'>
             Kavete.org is an online opportunities platform for all who want to earn.
         </h2>
+        
+
+        <div>
+       
+        </div>
+        
         <div className='mx-auto mt-5 flex max-w-fit '>
             <a href="#" className='rounded-full mx-auto max-w-fit border px-5 py-2 text-sm font-medium shadow-sm border-black hover:ring-gray-700 hover:ring-2'>Get Started</a>
         </div>
         <div className='mt-5 items-center justify-center'>
-                <img src={demo} alt="" />
+                <img src={demo} alt="" className='mx-auto'/>
         </div>
 
     </section>

@@ -1,6 +1,10 @@
 import React from 'react'
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
+import { partnersLogo } from './Data/partners'
+import Slider from './Components/Slider'
+import FeaturesSection from './Components/FeaturesSection'
+import Testimonials from './Components/Testimonials'
 
 const App = () => {
   return (
@@ -15,8 +19,12 @@ const App = () => {
 
 <div className='relative z-20'> 
 <Navbar />
+
 <div className='container mx-auto'>
 <Hero />
+<Slider images={partnersLogo} />
+<FeaturesSection />
+<Testimonials />
 </div>
 </div>
 
