@@ -11,10 +11,10 @@ const Hero = () => {
         </div>
       </Tag>
       <h1 className="text-4xl font-extrabold leading-[1.15] text-black sm:text-6xl">
-        Using AI to
+        Using AI to Get 42M+
         <br />
         <span className="bg-gradient-to-r from-pink-500 via-indigo-600 to-pink-500 bg-clip-text text-transparent">
-          Get Africans Employed.
+          Africans Employed.
         </span>
       </h1>
       <h2 className="mt-5 text-gray-600 sm:text-xl">

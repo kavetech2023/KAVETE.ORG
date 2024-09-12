@@ -18,7 +18,7 @@ const Testimonials = () => {
     <div className='grid gap-8 grid-cols-1 md:grid-cols-3 items-center max-w-screen-xl text-left'>
         {/*---------- Testimonials----------*/}
         <div className='grid gap-4'>
-            <div className='border rounded-lg bg-white/20 backdrop-blur-lg p-6'>
+            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
@@ -29,7 +29,7 @@ const Testimonials = () => {
                         </span>
                     </p>
             </div>
-            <div className='border rounded-lg bg-white/20 backdrop-blur-lg p-6'>
+            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
@@ -40,7 +40,25 @@ const Testimonials = () => {
                         </span>
                     </p>
             </div>
-            <div className='border rounded-lg bg-white/20 backdrop-blur-lg p-6'>
+           
+        </div>
+
+
+
+
+        <div className='grid gap-4'>
+            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
+                    <div className='flex space-x-3 mb-4'>
+                        <img src="" className='rounded-full h-12 w-12' alt="" />
+                        <p>User</p>
+                    </div>
+                    <p className='text-sm space-y-4'>
+                        <span>
+                            Scaling our capabilities as our business grows has been a breeze with Kavete.
+                        </span>
+                    </p>
+            </div>
+            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
@@ -54,8 +72,10 @@ const Testimonials = () => {
             </div>
         </div>
 
+
+
         <div className='grid gap-4'>
-            <div className='border rounded-lg bg-white/20 backdrop-blur-lg p-6'>
+            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
@@ -66,22 +86,7 @@ const Testimonials = () => {
                         </span>
                     </p>
             </div>
-     
-      
-        </div>
-        <div className='grid gap-4'>
-            <div className='border rounded-lg bg-white/20 backdrop-blur-lg p-6'>
-                    <div className='flex space-x-3 mb-4'>
-                        <img src="" className='rounded-full h-12 w-12' alt="" />
-                        <p>User</p>
-                    </div>
-                    <p className='text-sm space-y-4'>
-                        <span>
-                            Scaling our capabilities as our business grows has been a breeze with Kavete.
-                        </span>
-                    </p>
-            </div>
-            <div className='border rounded-lg bg-white/20 backdrop-blur-lg p-6'>
+            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>

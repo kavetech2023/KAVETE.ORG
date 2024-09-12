@@ -22,7 +22,7 @@ const App = () => {
 <div className='relative z-20'> 
 <Navbar />
 
-<div className='container mx-auto'>
+<div className='container mx-auto px-3'>
 <Hero />
 <Slider images={partnersLogo} />
 <FeaturesSection />
