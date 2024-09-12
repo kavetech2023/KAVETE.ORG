@@ -19,7 +19,7 @@ const Hero = () => {
         42M+ Africans Employed.
         </span>
       </h1>
-      <hr className="mt-6 border-b-2 border-gray-700 border-solid rounded-b-md box-shadow-[rgb(38,57,77)_0px_20px_30px_-10px]"/>
+    
 
       </div>
       
