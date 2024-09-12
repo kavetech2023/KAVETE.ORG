@@ -17,13 +17,12 @@ const Navbar = () => {
     }
   })
 
-  const defaultClasses = 'transition-all absolute inset-0 -z-1';
 
-  let navbarClasses = scrolled ? `${defaultClasses} border-b border-black/10 bg-white/75 backdrop-blur-lg` : `${defaultClasses} bg-transparent`;
+
 
   return (
     <div className='sticky inset-x-0 top-0 w-full z-30'>
-      <div className={navbarClasses}></div>
+      <div className="border-b border-black/10 bg-white/75 backdrop-blur-lg transition-all absolute inset-0 -z-1"></div>
       <div className='mx-auto w-full max-w-screen-xl px-2.5 lg:px-20 relative'>
       <div className='flex items-center justify-between'>
         <div>

@@ -18,7 +18,7 @@ const Hero = () => {
         </span>
       </h1>
       <h2 className="mt-5 text-gray-600 sm:text-xl">
-        Kavete.org is an online opportunities platform for all who want to earn.
+        Get Employed in only a click of a button.
       </h2>
 
       <div></div>
@@ -41,7 +41,7 @@ const Hero = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
-          ></iframe>{" "}
+          ></iframe>
            
         </div>
       </div>

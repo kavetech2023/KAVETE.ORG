@@ -6,9 +6,7 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        "gradient-to-c": "radial-gradient(var(--tw-gradient-stops))",
-      }
+     
     },
   },
   plugins: [],
