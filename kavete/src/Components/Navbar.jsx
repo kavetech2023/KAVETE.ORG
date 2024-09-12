@@ -1,23 +1,9 @@
 import { Link } from 'react-router-dom'
-import {useScroll, useMotionValueEvent} from "framer-motion";
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const { scrollY } = useScroll();
-  const [scrolled, setScrolled] = useState(false)
-  
-
-  useMotionValueEvent(scrollY,"change", (latest) => {
-
-    if (latest > 0 && !scrolled) {
-      setScrolled(true)
-    } else if (latest === 0 && scrolled) {
-      setScrolled(false)
-    }
-  })
-
-
 
 
   return (
@@ -26,7 +12,7 @@ const Navbar = () => {
       <div className='mx-auto w-full max-w-screen-xl px-2.5 lg:px-20 relative'>
       <div className='flex items-center justify-between'>
         <div>
-          logo
+    <img src={logo} alt="logo" className='w-20'/>
         </div>
         <nav className='hidden md:block'>
           <ul className='flex flex-row space-x-4 p-4'>
