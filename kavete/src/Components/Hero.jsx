@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="mt-5 items-center justify-center ">
         <div class="mx-auto max-w-[850px] bg-white border border-indigo/400/30 rounded-lg shadow-lg sm:w-1/2 md:w-3/4 lg:w-full h-48 sm:h-64 md:h-96">
           <iframe
-            className="w-full h-full"
+            className="w-full h-full border-indigo/400/30 rounded-lg shadow-lg"
             src="https://www.youtube.com/embed/vkdLST5UkEQ?si=M51DoVBHfXEA1qF0"
             title="YouTube video player"
             frameborder="0"
