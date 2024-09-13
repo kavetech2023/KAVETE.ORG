@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom'
 import MobileMenu from './MobileMenu';
 import logo from "../assets/logo.png";
 
@@ -28,7 +27,7 @@ const Navbar = () => {
 
         </nav>
         <div className='hidden md:block'>
-          <a href="Login" className='bg-black px-4 py-2 rounded-md text-white cursor-pointer'>+ My Dashboard</a>
+          <NavLink to={"/dashboard"} className='bg-black px-4 py-2 rounded-md text-white cursor-pointer'>+ My Dashboard</NavLink>
           
         </div>
         <MobileMenu />
