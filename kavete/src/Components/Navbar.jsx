@@ -28,8 +28,8 @@ const Navbar = () => {
 
         </nav>
         <div className='hidden md:block'>
-          <a href="Login" className='bg-black px-4 py-2 rounded-md text-white cursor-pointer'>Login</a>
-          <a href="" className='bg-black px-4 py-2 rounded-md text-white cursor-pointer ml-2'>Signup</a>
+          <a href="Login" className='bg-black px-4 py-2 rounded-md text-white cursor-pointer'>+ My Dashboard</a>
+          
         </div>
         <MobileMenu />
       </div>

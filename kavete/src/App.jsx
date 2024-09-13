@@ -7,6 +7,7 @@ import FeaturesSection from './Components/FeaturesSection'
 import Testimonials from './Components/Testimonials'
 import PricingSection from './Components/PricingSection'
 import Footer from './Components/Footer'
+import RoadMap from './Components/RoadMap'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
 <div className='container mx-auto px-3'>
 <Hero />
 <Slider images={partnersLogo} />
+<RoadMap />
 <FeaturesSection />
 <Testimonials />
 <PricingSection />
