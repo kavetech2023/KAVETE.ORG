@@ -20,8 +20,6 @@ const App = () => {
       <div className="bg-gradient-to-c from-transparent via-transparent to-white absolute inset-0 z-20"></div>
 
       <div className="relative z-20">
-        <Navbar />
-
         <div>
           <Routes>
             <Route path="/" element={<Home />} />

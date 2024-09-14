@@ -1,33 +1,35 @@
 import React from 'react'
-import Sidebar from '../Components/Sidebar'
+import { features } from '../Data/features'
+import TagLine from '../Components/TagLine'
 
 const Dashboard = () => {
   return (
-    <div>
-        <div className='flex '>
-    <Sidebar/>
-    <div className='w-full ml-16 md:ml-64'>
-    <div className='flex justify-between items-center p-4'>
-        <div>
-            <h1 className='text-xs'>Welcome Back</h1>
-            <p className='text-xl font-semibold'>Kevin</p>
-        </div>
-        <div className='flex items-center space-x-5'>
-            <div className='hidden md:flex'>
-                <input type="text" placeholder='Search...' className='bg-indigo-100/30 px-4 py-2 rounded-lg focus:outline-0 focus:ring-2 focus:ring-indigo-600'/>
+    <div className='container mx-auto px-3'>
+             <div className="flex items-center p-2 justify-center flex-col">
+        <TagLine>Features</TagLine>
+        <h2 className="font-extrabold text-3xl mb-8 pt-3">Intelligence form building</h2>
+        {/* Dashboard Navbar */}
+        <nav className='flex items-center space-x-4 bg-white border border-indigo/400/30 rounded-lg shadow-lg p-6 w-full h-full max-w-screen-xl
+        '>
+
+        </nav>
+        {/* Dashboard Navbar */}
+
+        
+        <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
+           
+            {
+            features.map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-4 bg-white border border-indigo/400/30 rounded-lg shadow-lg p-6 h-full">
+                        <div>
+                            <h3 className="font-bold text-xl">{feature.title}</h3>
+                            <p className="text-gray-500">{feature.description}</p>
+                        </div>
+                    </div>    
+            ))}
             </div>
-        </div>
-        <div className='flex items-center space-x-5'>
-        <button className='relative text-2xl text-gray-600'>
-            <span className='absolute top-0 right-0 -mt-1 -mr-1 flex justify-center items-center bg-indigo-600 text-white font-semibold text-[10px] w-5 h-4 rounded-full border-2 border-white'>9</span>
-        </button>
-        <img src="" alt="" className='w-8 g-8 rounded-full border-2'/>
-        </div>
-        </div>
     </div>
     </div>
-    </div>
-    
   )
 }
 

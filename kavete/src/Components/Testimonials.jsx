@@ -20,7 +20,7 @@ const Testimonials = () => {
         <div className='grid gap-4'>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
-                        <img src="" className='rounded-full h-12 w-12' alt="" />
+                        <img src="https://randomuser.me/portraits/women/1.jpg" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
                     </div>
                     <p className='text-sm space-y-4'>
@@ -31,7 +31,7 @@ const Testimonials = () => {
             </div>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
-                        <img src="" className='rounded-full h-12 w-12' alt="" />
+                        <img src="https://randomuser.me/portraits/women/15.jpg" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
                     </div>
                     <p className='text-sm space-y-4'>
@@ -49,7 +49,7 @@ const Testimonials = () => {
         <div className='grid gap-4'>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
-                        <img src="" className='rounded-full h-12 w-12' alt="" />
+                        <img src="https://randomuser.me/portraits/men/1.jpg" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
                     </div>
                     <p className='text-sm space-y-4'>
@@ -60,7 +60,7 @@ const Testimonials = () => {
             </div>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
-                        <img src="" className='rounded-full h-12 w-12' alt="" />
+                        <img src="https://randomuser.me/portraits/women/4.jpg" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
                     </div>
                     <p className='text-sm space-y-4'>
@@ -77,7 +77,7 @@ const Testimonials = () => {
         <div className='grid gap-4'>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
-                        <img src="" className='rounded-full h-12 w-12' alt="" />
+                        <img src="https://randomuser.me/portraits/women/13.jpg" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
                     </div>
                     <p className='text-sm space-y-4'>
@@ -88,7 +88,7 @@ const Testimonials = () => {
             </div>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
-                        <img src="" className='rounded-full h-12 w-12' alt="" />
+                        <img src="https://randomuser.me/portraits/men/5.jpg" className='rounded-full h-12 w-12' alt="" />
                         <p>User</p>
                     </div>
                     <p className='text-sm space-y-4'>
