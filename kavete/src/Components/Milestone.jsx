@@ -1,10 +1,12 @@
-const Milestone = ({title, description, lastItem}) => {
+const Milestone = ({title, description, icon, lastItem}) => {
   return (
     <div className="flex w-full">
         <div className="relative flex flex-col items-center h-32">         
-                <div className="z-20 bg-gradient-to-b from-pink-500 to-indigo-500 h-4 w-4 rounded-full flex-shrink-0 relative">
-
-                    <div className="bg-gradient-to-b from-pink-500 to-indigo-500 h-5 w-5 rounded-full flex-shrink-0 absolute z-10 blur-md"></div>
+                <div className="z-20 bg-gradient-to-b from-pink-500 to-indigo-500 h-auto w-full p-2 rounded-full flex-shrink-0 relative">
+                {icon}
+                    <div className="bg-gradient-to-b from-pink-500 to-indigo-500 h-5 w-5 p-2 rounded-full  absolute z-10 blur-md">
+                    
+                    </div>
                 </div>
                 {
                     !lastItem && 
