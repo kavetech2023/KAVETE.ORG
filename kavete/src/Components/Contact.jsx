@@ -32,7 +32,7 @@ const Contact = () => {
        <h2 className="font-extrabold text-3xl mb-8 pt-3">Flexible Pricing to Fit Your Growth</h2>
       
        <form onSubmit={onSubmit} action="" className='max-w-screen-xl w-full'>
-          <div className='grid grid-cols-2 gap-6 mt-10 mb-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 mb-8'>
               <input type="text" placeholder='Enter your name' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white'/>
   
               <input type="email" placeholder='Enter your email' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white'/>

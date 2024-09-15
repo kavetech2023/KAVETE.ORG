@@ -19,11 +19,11 @@ const MobileMenu = () => {
 
 
     <ul ref={menuRef} className='flex flex-col items-center py-4 gap-4'>
-    <li><AnchorLink className='anchor-link' offset={100} href="#home"><p className={`${menu==="home"? "font-bold" :""}`} onClick={()=>setMenu("home")}>Home</p></AnchorLink></li>
-            <li><AnchorLink className='anchor-link' offset={250} href="#work"><p className={`${menu==="about"? "font-bold" :""}`} onClick={()=>setMenu("about")}>How it Works</p></AnchorLink></li>
-            <li><AnchorLink className='anchor-link' offset={100} href="#services"><p className={`${menu==="services"? "font-bold" :""}`} onClick={()=>setMenu("services")}>Services</p></AnchorLink></li>
-            <li><AnchorLink className='anchor-link' offset={80} href="#testimonials"><p  className={`${menu==="testimonials"? "font-bold" :""}`} onClick={()=>setMenu("testimonials")}>Testimonials</p></AnchorLink></li>
-            <li><AnchorLink className='anchor-link' offset={50} href="#contact"><p className={`${menu==="contact"? "font-bold" :""}`} onClick={()=>setMenu("contact")}>Contact</p></AnchorLink></li>
+    <li><AnchorLink className='anchor-link' offset={100} href="#home"><p className={`${menu==="home"? "font-bold" :""}`} onClick={()=>{setMenu("home"); setNavOpen(false);}}>Home</p></AnchorLink></li>
+            <li><AnchorLink className='anchor-link' offset={250} href="#work"><p className={`${menu==="about"? "font-bold" :""}`} onClick={()=>{setMenu("about"); setNavOpen(false);}}>How it Works</p></AnchorLink></li>
+            <li><AnchorLink className='anchor-link' offset={100} href="#services"><p className={`${menu==="services"? "font-bold" :""}`} onClick={()=>{setMenu("services"); setNavOpen(false)}}>Our Services</p></AnchorLink></li>
+            <li><AnchorLink className='anchor-link' offset={50} href="#testimonials"><p  className={`${menu==="testimonials"? "font-bold" :""}`} onClick={()=>{setMenu("testimonials"); setNavOpen(false)}}>Testimonials</p></AnchorLink></li>
+            <li><AnchorLink className='anchor-link' offset={100} href="#contact"><p className={`${menu==="contact"? "font-bold" :""}`} onClick={()=>{setMenu("contact"); setNavOpen(false)}}>Submit Cv</p></AnchorLink></li>
             </ul>
 </div>
 </>
