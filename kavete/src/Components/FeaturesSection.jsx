@@ -3,9 +3,9 @@ import TagLine from "./TagLine"
 
 const FeaturesSection = () => {
   return (
-    <div className="flex items-center p-2 justify-center flex-col">
-        <TagLine>Features</TagLine>
-        <h2 className="font-extrabold text-3xl mb-8 pt-3">Intelligence form building</h2>
+    <div id="services" className="flex items-center p-2 justify-center flex-col">
+        <TagLine>Services</TagLine>
+        <h2 className="font-extrabold text-3xl mb-8 mx-auto pt-3">What we offer to you.</h2>
         <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
             {
             features.map((feature, index) => (
