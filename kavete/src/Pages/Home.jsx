@@ -12,7 +12,7 @@ import Contact from '../Components/Contact'
 const Home = () => {
   return (
     <>
-    <div className='container mx-auto px-3'>
+    <div className='container mx-auto'>
 <Navbar />
 <Hero />
 <Slider images={partnersLogo} />
@@ -20,7 +20,6 @@ const Home = () => {
 <FeaturesSection />
 <Testimonials />
 <Contact />
-<PricingSection />
 <Footer />
 </div>
     </>
