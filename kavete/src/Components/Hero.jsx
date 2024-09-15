@@ -4,7 +4,7 @@ import Tag from "./Tag";
 
 const Hero = () => {
   return (
-    <section className="hero-section text-center mt-10 flex flex-col">
+    <section id="home" className="hero-section text-center mt-10 flex flex-col">
       <Tag>
         <div className="flex items-center cursor-pointer">
           <span>Kavete v0.1</span>

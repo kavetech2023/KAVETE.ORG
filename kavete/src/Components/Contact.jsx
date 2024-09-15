@@ -27,7 +27,7 @@ const Contact = () => {
       };
 
     return (
-        <div className="flex text-center p-10 items-center justify-center flex-col">
+        <div id="contact" className="flex text-center p-10 items-center justify-center flex-col">
        <TagLine>Submit Your Documents</TagLine>
        <h2 className="font-extrabold text-3xl mb-8 pt-3">Flexible Pricing to Fit Your Growth</h2>
       

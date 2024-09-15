@@ -1,6 +1,6 @@
 const Milestone = ({title, description, icon, lastItem}) => {
   return (
-    <div className="flex w-full">
+    <div id="work" className="flex w-full">
         <div className="relative flex flex-col items-center h-32">         
                 <div className="z-20 bg-gradient-to-b  from-pink-500 to-indigo-500 h-auto w-full p-2 rounded-full flex-shrink-0 relative">
                 {icon}
