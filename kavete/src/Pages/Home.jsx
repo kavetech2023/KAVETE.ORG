@@ -12,16 +12,18 @@ import Contact from '../Components/Contact'
 const Home = () => {
   return (
     <>
-    <div className='container mx-auto'>
+    
 <Navbar />
+<div className='container mx-auto px-3'>
 <Hero />
 <Slider images={partnersLogo} />
 <RoadMap />
 <FeaturesSection />
 <Testimonials />
 <Contact />
-<Footer />
 </div>
+<Footer />
+
     </>
   )
 }
