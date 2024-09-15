@@ -6,25 +6,25 @@ const RoadMap = () => {
 
     const roadmap = [
         {   id: 1,
-            icon: <ClipboardPlus/>,
+            icon: <ClipboardPlus color={"white"}/>,
             title: 'Step 1',
             description: 'We get your CV and match you with the best job opportunities in Africa.',
         },
         {
             id: 2,
-            icon: <Bot/>,
+            icon: <Bot color={"white"}/>,
             title: 'Step 2',
             description: 'We train you on the skills you need to get the job.',
         },
         {
             id: 3,
-            icon: <Briefcase/>,
+            icon: <Briefcase color={"white"}/>,
             title: 'Step 3',
             description: 'We help you get the job and support you as you grow in your career.',
         },
         {
             id: 4,
-            icon: <Plane />,
+            icon: <Plane color={"white"} />,
             title: 'Step 4',
             description: 'We help you get the job and support you as you grow in your career.',
         }

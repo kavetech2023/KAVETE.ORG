@@ -7,6 +7,7 @@ import PricingSection from '../Components/PricingSection'
 import Footer from '../Components/Footer'
 import RoadMap from '../Components/RoadMap'
 import Navbar from '../Components/Navbar'
+import Contact from '../Components/Contact'
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
 <RoadMap />
 <FeaturesSection />
 <Testimonials />
+<Contact />
 <PricingSection />
 <Footer />
 </div>
