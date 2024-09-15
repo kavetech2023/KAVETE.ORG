@@ -1,9 +1,12 @@
 import { Link, NavLink } from 'react-router-dom'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import MobileMenu from './MobileMenu';
 import logo from "../assets/logo.png";
+import { useRef, useState } from 'react';
 
 const Navbar = () => {
-
+  const [menu, setMenu] = useState("home")
+  const menuRef = useRef();
 
   return (
     <div className='sticky inset-x-0 top-0  w-full z-30'>
@@ -17,15 +20,12 @@ const Navbar = () => {
     
         </div>
         <nav className='hidden md:block'>
-          <ul className='flex flex-row space-x-4 p-4'>
-            <li>
-              <a href='/' className='text-gray-600'>About us</a>
-              </li>
-              <li>
-              <a href='/' className='text-gray-600'>Features</a>
-              </li><li>
-              <a href='/' className='text-gray-600'>Pricing</a>
-              </li>
+          <ul ref={menuRef} className='flex flex-row space-x-4 p-4'>
+          <li><AnchorLink className='anchor-link' offset={50} href="#home"><p onClick={()=>setMenu("home")}>Home</p></AnchorLink>{menu==="home"?<span>_</span>:<></>}</li>
+            <li><AnchorLink className='anchor-link' offset={250} href="#work"><p onClick={()=>setMenu("about")}>How it Works</p></AnchorLink>{menu==="about"?<span>_</span>:<></>}</li>
+            <li><AnchorLink className='anchor-link' offset={100} href="#services"><p onClick={()=>setMenu("services")}>Services</p></AnchorLink>{menu==="services"?<span>_</span>:<></>}</li>
+            <li><AnchorLink className='anchor-link' offset={100} href="#testimonials"><p onClick={()=>setMenu("testimonials")}>Testimonials</p></AnchorLink>{menu==="work"?<span>_</span>:<></>}</li>
+            <li><AnchorLink className='anchor-link' offset={50} href="#contact"><p onClick={()=>setMenu("contact")}>Contact</p></AnchorLink>{menu==="contact"?<span>_</span>:<></>}</li>
           </ul>
 
         </nav>
