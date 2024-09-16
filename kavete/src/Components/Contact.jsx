@@ -33,11 +33,14 @@ const Contact = () => {
       
        <form onSubmit={onSubmit} action="" className='max-w-screen-xl w-full'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 mb-8'>
-              <input type="text" placeholder='Enter your name' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white'/>
+              <input type="text"  placeholder='Enter your name' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white'/>
   
-              <input type="email" placeholder='Enter your email' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white'/>
+              <input type="email"  placeholder='Enter your email' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white'/>
           </div>
-          <textarea rows="6" placeholder='Enter your message' className='w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6'></textarea>
+          <textarea  rows="6" placeholder='Enter your message' className='w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6'></textarea>
+
+          <input className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white' type="file"  />
+
           <button className='py-3 px-8 w-max flex items-center justify-between bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500'>Submit now <span>i</span></button>
           <span>{result}</span>
        </form>
