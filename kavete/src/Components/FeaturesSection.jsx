@@ -1,5 +1,6 @@
 import { features } from "../Data/features"
 import TagLine from "./TagLine"
+import { ScanEye, FileSearch, MessageSquare, BriefcaseBusiness, CircleDollarSign, ChartNoAxesCombined } from 'lucide-react';
 
 const FeaturesSection = () => {
   return (
@@ -10,9 +11,20 @@ const FeaturesSection = () => {
             {
             features.map((feature, index) => (
                     <div key={index} className="flex items-center space-x-4 bg-white border border-indigo/400/30 rounded-lg shadow-lg p-6 h-full">
-                        <div>
+                        <div className="flex justify-between gap-2">
+                            <div>
+                            {feature.icon === "1" && <ScanEye size={40} />}
+        {feature.icon === "2" && <FileSearch size={40} />}
+        {feature.icon === "3" && <MessageSquare size={40}/>}
+        {feature.icon === "4" && <BriefcaseBusiness size={40} />}
+        {feature.icon === "5" && <CircleDollarSign size={40}/>}
+        {feature.icon === "6" && <ChartNoAxesCombined size={40}/>}
+                            </div>
+                            <div>
                             <h3 className="font-bold text-xl">{feature.title}</h3>
                             <p className="text-gray-500">{feature.description}</p>
+                            </div>
+                            
                         </div>
                     </div>    
             ))}

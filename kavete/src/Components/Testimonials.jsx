@@ -21,7 +21,12 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/1.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>Kathy - HR Professional</p>
+                        <div class='flex flex-col'> 
+
+                        <p>Anna</p>
+                        <p>Recruiter</p>
+                        </div>
+                       
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
@@ -32,7 +37,11 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/15.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>Jessica - Career Counselor</p>
+                        <div class='flex flex-col'> 
+                        <p>Jessica</p>
+                        <p>Career Counselor</p>
+                        </div>
+                       
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
@@ -50,7 +59,9 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/men/1.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>Mark - Tech Entrepreneur</p>
+                        <div class='flex flex-col'> 
+                        <p>Mark</p> <p>Tech Entrepreneur</p>
+                        </div>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
@@ -61,7 +72,11 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/4.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>Liza - Job Seeker</p>
+                        <div class='flex flex-col'> 
+                        <p>Emily</p>
+                        <p>Job Seeker</p>
+                         </div>   
+                        
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
@@ -78,25 +93,33 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/13.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>Phoebe - Economist</p>
+                        <div class='flex flex-col'> 
+                        <p>Phoebe </p>
+                        <p>Economist</p>
+                        </div>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                            S"AI-driven job matching has the potential to revolutionize the labor market. It can help bridge the gap between job seekers and employers, leading to increased efficiency and economic growth."
+                            "AI-driven job matching has the potential to revolutionize the labor market. It can help bridge the gap between job seekers and employers, leading to increased efficiency and economic growth."
                         </span>
                     </p>
             </div>
+
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
-            <div className='flex space-x-3 mb-4'>
+                    <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/men/5.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>James - AI Researcher</p>
+                        <div class='flex flex-col'> 
+                        <p>James </p>
+                        <p>Ai Entrepreneur</p>
+                        </div>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                        "The advancements in natural language processing and machine learning have enabled AI to provide increasingly accurate and relevant job recommendations. This technology has the potential to transform the way people find and secure employment."
+                        "The advancements in natural language processing and machine learning have enabled AI to provide increasingly accurate and relevant job recommendations."
                         </span>
                     </p>
             </div>
+  
  
         </div>
 
