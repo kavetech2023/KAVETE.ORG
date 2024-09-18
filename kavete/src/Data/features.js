@@ -1,19 +1,27 @@
 export const features = [
     {
-        title:"AI-Powered Customization",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget mauris ultrices.",  
+        title:"Personalized Job Matching",
+        description:"Using AI algorithms to analyze candidate profiles and job descriptions to identify the best matches based on skills, experience, and preferences.",  
     },
     {
-        title:"Real Time Analytics",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget mauris ultrices.",
+        title:"Resume/Cv Optimization",
+        description:"We provide AI-powered tools to help candidates create and optimize their resumes.",
     },
     {
-        title:"Secure and Scalable",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget mauris ultrices.",
+        title:"Interview Preparation",
+        description:"We offer AI-powered mock interviews to help candidates practice their responses to common interview questions",
     },
     {
-        title:"24/7 Customer Support",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget mauris ultrices.",
+        title:"Career Path Guidance",
+        description:"We use AI to analyze a candidate's skills, interests, and experience to suggest potential career paths and provide personalized guidance",
+    },
+    {
+        title:"Salary Negotiation Support",
+        description:"We provide AI-powered tools to help candidates research salary ranges and negotiate job offers",
+    },
+    {
+        title:"Job Market Insights",
+        description:"We use AI to analyze job market trends and provide insights on in-demand skills, industries, and locations",
     }
 
 ]

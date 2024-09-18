@@ -21,22 +21,22 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/1.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>User</p>
+                        <p>Kathy - HR Professional</p>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                            Scaling our capabilities as our business grows has been a breeze with Kavete.
+                        "This AI tool has been a game-changer for our hiring process. It's significantly reduced our time-to-hire by identifying top-tier candidates who perfectly align with our company's needs."
                         </span>
                     </p>
             </div>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/15.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>User</p>
+                        <p>Jessica - Career Counselor</p>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                            Scaling our capabilities as our business grows has been a breeze with Kavete.
+                        "I'm impressed with how this AI platform provides personalized career guidance. It's helped my clients discover hidden talents and explore new opportunities they hadn't considered before."
                         </span>
                     </p>
             </div>
@@ -50,22 +50,22 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/men/1.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>User</p>
+                        <p>Mark - Tech Entrepreneur</p>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                            Scaling our capabilities as our business grows has been a breeze with Kavete.
+                        "The AI-powered resume optimization feature is invaluable. It's not only improving the quality of resumes but also helping candidates tailor their applications to specific job openings."
                         </span>
                     </p>
             </div>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/4.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>User</p>
+                        <p>Liza - Job Seeker</p>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                            Scaling our capabilities as our business grows has been a breeze with Kavete.
+                        "I've landed multiple interviews thanks to the AI-powered job matching. The platform has saved me countless hours of searching and has connected me with relevant opportunities."
                         </span>
                     </p>    
 
@@ -78,22 +78,22 @@ const Testimonials = () => {
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/13.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>User</p>
+                        <p>Phoebe - Economist</p>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                            Scaling our capabilities as our business grows has been a breeze with Kavete.
+                            S"AI-driven job matching has the potential to revolutionize the labor market. It can help bridge the gap between job seekers and employers, leading to increased efficiency and economic growth."
                         </span>
                     </p>
             </div>
             <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
             <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/men/5.jpg" className='rounded-full h-12 w-12' alt="" />
-                        <p>User</p>
+                        <p>James - AI Researcher</p>
                     </div>
                     <p className='text-sm space-y-4'>
                         <span>
-                            Scaling our capabilities as our business grows has been a breeze with Kavete.
+                        "The advancements in natural language processing and machine learning have enabled AI to provide increasingly accurate and relevant job recommendations. This technology has the potential to transform the way people find and secure employment."
                         </span>
                     </p>
             </div>
