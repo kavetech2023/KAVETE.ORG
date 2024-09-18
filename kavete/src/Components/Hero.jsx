@@ -11,9 +11,9 @@ const Hero = () => {
         </div>
       </Tag>
 
-      <div className="mx-auto max-w-[800px]">
+      <div className="mx-auto max-w-[800px] mb-4">
       <h1 className="text-4xl font-extrabold  leading-15 text-black sm:text-6xl">
-      AI Job Matchmaker
+      AI-Powered Job Finder.
       </h1>
       <h2 className="text-4xl font-bold bg-gradient-to-r w-full block mt-4 from-pink-500 via-indigo-600 to-pink-500 bg-clip-text text-transparent">
         Your Dream Job Awaits
@@ -24,10 +24,6 @@ const Hero = () => {
       
 
     
-     
-
-     
-
       <div className="mt-10 items-center justify-center ">
         <div class="mx-auto max-w-[850px] bg-white border border-indigo/400/30 rounded-lg shadow-lg ">
           <iframe
@@ -42,6 +38,8 @@ const Hero = () => {
            
         </div>
       </div>
+
+      
     </section>
   );
 };
