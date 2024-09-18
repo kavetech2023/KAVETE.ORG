@@ -6,26 +6,26 @@ const RoadMap = () => {
 
     const roadmap = [
         {   id: 1,
-            icon: <ClipboardPlus color={"white"}/>,
-            title: 'Step 1',
+            icon: <ClipboardPlus />,
+            title: 'Step 1 : Upload your Resume',
             description: 'We get your CV and match you with the best job opportunities in Africa.',
         },
         {
             id: 2,
-            icon: <Bot color={"white"}/>,
-            title: 'Step 2',
-            description: 'We train you on the skills you need to get the job.',
+            icon: <Bot/>,
+            title: 'Step 2 : Resume Optimization',
+            description: 'We help you optimize your CV to increase your chances of getting hired.',
         },
         {
             id: 3,
-            icon: <Briefcase color={"white"}/>,
-            title: 'Step 3',
-            description: 'We help you get the job and support you as you grow in your career.',
+            icon: <Briefcase />,
+            title: 'Step 3 :Job Matching',
+            description: 'We use AI to match you with the best job opportunities Globally.',
         },
         {
             id: 4,
-            icon: <Plane color={"white"} />,
-            title: 'Step 4',
+            icon: <Plane />,
+            title: 'Step 4 : Career Support',
             description: 'We help you get the job and support you as you grow in your career.',
         }
     ]
