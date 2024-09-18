@@ -4,7 +4,7 @@ import k from '../assets/logo.png';
 
 function Sidebar() {
   return (
-    <div className="hidden lg:w-64 md:flex md:w-16 bg-white fixed top-0 left-0 h-full bg-secondary-color p-4 shadow-md flex-col z-50 transition-all overflow-y-scroll">
+    <div className="hidden lg:w-64 md:flex md:w-16 bg-white fixed top-0 left-0 h-full bg-secondary-color p-4 shadow-md flex-col z-50 transition-all ">
       <div className="sidebar-top flex items-center justify-between mb-4 pb-2 border-b border-gray-200">
         <Link to="/" className="flex items-center gap-2">
         <div className="sidebar-brand flex items-center gap-2">
@@ -24,7 +24,7 @@ function Sidebar() {
               <div className="menu-link-icon flex items-center">
                 <i className="fa fa-home text-gray-500"></i>
               </div>
-              <span className="menu-link-text hidden sm:inline-block text-gray-700">Dashboard</span>
+              <span className="menu-link-text hidden sm:inline-block text-gray-700">My Jobs</span>
             </div>
           </a>
           <a href="#" className="menu-item mb-2">
@@ -32,7 +32,7 @@ function Sidebar() {
               <div className="menu-link-icon flex items-center">
                 <i className="fa fa-home text-gray-500"></i>
               </div>
-              <span className="menu-link-text hidden sm:inline-block text-gray-700">Dashboard</span>
+              <span className="menu-link-text hidden sm:inline-block text-gray-700">My Documents</span>
             </div>
           </a>
           <a href="#" className="menu-item mb-2">
@@ -40,7 +40,7 @@ function Sidebar() {
               <div className="menu-link-icon flex items-center">
                 <i className="fa fa-home text-gray-500"></i>
               </div>
-              <span className="menu-link-text hidden sm:inline-block text-gray-700">Dashboard</span>
+              <span className="menu-link-text hidden sm:inline-block text-gray-700"></span>
             </div>
           </a>
 

@@ -10,7 +10,7 @@ const FeaturesSection = () => {
         <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
             {
             features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-4 bg-white  rounded-lg shadow-lg p-6 h-full">
+                    <div key={index} className="flex items-center space-x-4 bg-white gap-4  rounded-lg shadow-lg p-6 h-full">
                         <div className="flex justify-between gap-4">
                             <div className="mt-1">
                             {feature.icon === "1" && <ScanEye size={40} color={"gray"}/>}
