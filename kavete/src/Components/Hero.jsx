@@ -12,13 +12,13 @@ const Hero = () => {
       </Tag>
 
       <div className="mx-auto max-w-[800px] mb-4">
-      <h1 className="text-4xl font-extrabold  leading-15 text-black sm:text-6xl">
+      <h1 className="text-4xl font-extrabold  leading-15 text-gray-700 sm:text-6xl">
       AI-Powered Job Finder.
       </h1>
       <h2 className="text-4xl font-bold bg-gradient-to-r w-full block mt-4 from-pink-500 via-indigo-600 to-pink-500 bg-clip-text text-transparent">
         Your Dream Job Awaits
         </h2>
-        <h3 className="text-1xl font-extrabold mt-4 leading-15 text-black sm:text-3xl">(+70,000 USD Salaries)</h3>
+        <h3 className="text-1xl font-extrabold mt-4 leading-15 text-gray-700 sm:text-3xl">(+70,000 USD Salaries)</h3>
 
       </div>
       

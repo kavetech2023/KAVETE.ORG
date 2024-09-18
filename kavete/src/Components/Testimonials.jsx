@@ -18,7 +18,7 @@ const Testimonials = () => {
     <div className='grid gap-8 grid-cols-1 md:grid-cols-3 items-center max-w-screen-xl text-left'>
         {/*---------- Testimonials----------*/}
         <div className='grid gap-4'>
-            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
+            <div className='rounded-lg bg-white backdrop-blur-lg p-6  shadow-lg'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/1.jpg" className='rounded-full h-12 w-12' alt="" />
                         <div class='flex flex-col'> 
@@ -34,7 +34,7 @@ const Testimonials = () => {
                         </span>
                     </p>
             </div>
-            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
+            <div className='rounded-lg bg-white backdrop-blur-lg p-6  shadow-lg'>
             <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/15.jpg" className='rounded-full h-12 w-12' alt="" />
                         <div class='flex flex-col'> 
@@ -56,7 +56,7 @@ const Testimonials = () => {
 
 
         <div className='grid gap-4'>
-            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
+            <div className='rounded-lg bg-white backdrop-blur-lg p-6  shadow-lg'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/men/1.jpg" className='rounded-full h-12 w-12' alt="" />
                         <div class='flex flex-col'> 
@@ -69,7 +69,7 @@ const Testimonials = () => {
                         </span>
                     </p>
             </div>
-            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
+            <div className='rounded-lg bg-white backdrop-blur-lg p-6  shadow-lg'>
             <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/4.jpg" className='rounded-full h-12 w-12' alt="" />
                         <div class='flex flex-col'> 
@@ -90,7 +90,7 @@ const Testimonials = () => {
 
 
         <div className='grid gap-4'>
-            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
+            <div className='rounded-lg bg-white backdrop-blur-lg p-6  shadow-lg'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/women/13.jpg" className='rounded-full h-12 w-12' alt="" />
                         <div class='flex flex-col'> 
@@ -105,7 +105,7 @@ const Testimonials = () => {
                     </p>
             </div>
 
-            <div className='border rounded-lg bg-white backdrop-blur-lg p-6'>
+            <div className='rounded-lg bg-white backdrop-blur-lg p-6  shadow-lg'>
                     <div className='flex space-x-3 mb-4'>
                         <img src="https://randomuser.me/portraits/men/5.jpg" className='rounded-full h-12 w-12' alt="" />
                         <div class='flex flex-col'> 
