@@ -13,13 +13,11 @@ const Hero = () => {
 
       <div className="mx-auto max-w-[800px]">
       <h1 className="text-4xl font-extrabold  leading-15 text-black sm:text-6xl">
-        Using AI to Get 
-        
-        <span className="bg-gradient-to-r w-full block mt-4 from-pink-500 via-indigo-600 to-pink-500 bg-clip-text text-transparent">
-        42M+ Africans Employed.
-        </span>
+      AI Job Matchmaker
       </h1>
-    
+      <h2 className="text-4xl font-bold bg-gradient-to-r w-full block mt-4 from-pink-500 via-indigo-600 to-pink-500 bg-clip-text text-transparent">
+        Your Dream Job Awaits
+        </h2>
 
       </div>
       
