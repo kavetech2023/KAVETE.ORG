@@ -12,7 +12,7 @@ const Testimonials = () => {
   ];
 
   return (
-   <section id='testimonials' className='flex items-center justify-center p-2 mt-6 flex-col'>
+   <section id='testimonials' className='flex items-center justify-center p-2 mt-20 flex-col'>
     <TagLine>Testimonials</TagLine>
     <h2 className='text-3xl font-bold text-center mt-3 mb-8'>What our clients say</h2>
     <div className='grid gap-8 grid-cols-1 md:grid-cols-3 items-center max-w-screen-xl text-left'>

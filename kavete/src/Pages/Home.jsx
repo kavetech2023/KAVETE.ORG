@@ -20,7 +20,7 @@ const Home = () => {
 <RoadMap />
 <FeaturesSection />
 <Testimonials />
-<Contact />
+<PricingSection />
 </div>
 <Footer />
 
