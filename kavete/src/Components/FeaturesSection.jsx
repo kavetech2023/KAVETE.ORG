@@ -6,7 +6,7 @@ const FeaturesSection = () => {
   return (
     <div id="services" className="flex items-center p-2 justify-center flex-col">
         <TagLine>Services</TagLine>
-        <h2 className="font-extrabold text-3xl mb-2 mx-auto ">What we offer to you.</h2>
+        <h2 className="font-extrabold text-3xl mb-2 mx-auto ">What we do.</h2>
 
         <div className="grid grid-cols-1 max-w-[850px] sm:grid-cols-2">
 

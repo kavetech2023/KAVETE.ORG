@@ -37,7 +37,7 @@ const RoadMap = () => {
   
     <section className="flex p-10 items-center justify-center flex-col">
     <TagLine>How it Works</TagLine>
-    <h1 className="font-semibold text-3xl text-center mb-16">Steps to get your dream job.</h1>
+    <h2 className="font-extrabold text-3xl mb-7 mx-auto ">4 Steps to your success</h2>
     <div className="mx-auto max-w-80">
        
         {roadmap.map((milestone, index) => (

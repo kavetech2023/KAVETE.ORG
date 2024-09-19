@@ -7,6 +7,7 @@ import PricingSection from '../Components/PricingSection'
 import Footer from '../Components/Footer'
 import RoadMap from '../Components/RoadMap'
 import Navbar from '../Components/Navbar'
+import Features from '../Components/Features'
 
 const Home = ({setModal, modal}) => {
   return (
@@ -53,6 +54,7 @@ const Home = ({setModal, modal}) => {
 <Slider images={partnersLogo} />
 <RoadMap />
 <FeaturesSection />
+<Features />
 <Testimonials />
 <PricingSection />
 </div>
