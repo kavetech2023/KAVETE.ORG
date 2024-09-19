@@ -9,11 +9,7 @@ export const features = [
         icon: "2",
         description:"We provide AI-powered tools to help candidates create and optimize their resumes.",
     },
-    {
-        title:"Interview Preparation",
-        icon: "3",
-        description:"We offer AI-powered mock interviews to help candidates practice their responses to common interview questions",
-    },
+   
     {
         title:"Career Path Guidance",
         icon: "4",
