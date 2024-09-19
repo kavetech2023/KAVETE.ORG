@@ -7,10 +7,10 @@ const FeaturesSection = () => {
     <div id="services" className="flex items-center p-2 justify-center flex-col">
         <TagLine>Services</TagLine>
         <h2 className="font-extrabold text-3xl mb-2 mx-auto pt-3">What we offer to you.</h2>
-        <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
+        <div className="mt-10 grid items-center grid-cols-1 gap-7 md:grid-cols-3 max-w-screen-xl">
             {
             features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-4 bg-white gap-4  rounded-lg shadow-lg p-6 h-full">
+                    <div key={index} className="flex items-center space-x-4 bg-white   rounded-lg shadow-lg p-6 h-full">
                         <div className="flex justify-between gap-4">
                             <div className="mt-1">
                             {feature.icon === "1" && <ScanEye size={40} color={"gray"}/>}
