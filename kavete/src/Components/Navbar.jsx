@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 
 
 
+
 const Navbar = ({setModal}) => {
 
   const [menu, setMenu] = useState("home")
