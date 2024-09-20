@@ -3,6 +3,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import MobileMenu from './MobileMenu';
 import logo from "../assets/logo.png";
 import { useRef, useState } from 'react';
+import AuthDetails from '../Pages/AuthDetails';
 
 
 
@@ -35,7 +36,8 @@ const Navbar = ({setModal}) => {
         </nav>
         <div className='hidden md:block'>
        
-                        <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={()=>setModal}>LogIn</button>
+                        <Link to={"/dashboard"} className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={()=>setModal}>+ My Jobs</Link>
+                        
           
          
           

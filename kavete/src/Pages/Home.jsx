@@ -19,9 +19,7 @@ const Home = ({setModal, modal}) => {
 
 
 
-<AuthDetails />
 <Hero />
-
 <Slider images={partnersLogo} />
 <RoadMap />
 <FeaturesSection />
