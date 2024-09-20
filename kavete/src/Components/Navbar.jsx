@@ -1,10 +1,13 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import MobileMenu from './MobileMenu';
 import logo from "../assets/logo.png";
 import { useRef, useState } from 'react';
 
+
+
 const Navbar = ({setModal}) => {
+
   const [menu, setMenu] = useState("home")
   const menuRef = useRef();
 
@@ -30,7 +33,10 @@ const Navbar = ({setModal}) => {
 
         </nav>
         <div className='hidden md:block'>
-          <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={()=>setModal}>LogIn</button>
+       
+                        <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={()=>setModal}>LogIn</button>
+          
+         
           
         </div>
         <MobileMenu />
