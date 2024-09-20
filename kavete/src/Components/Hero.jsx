@@ -14,14 +14,14 @@ const Hero = () => {
       <div className="mx-auto max-w-[850px] mb-4 px-5">
         <div className="flex sm:grid-cols-2  bg-white p-2 shadow-lg rounded-lg">
           <div className="justify-start border border-gray-400 p-2">
-            <h1 className="text-4xl font-extrabold  leading-15 text-gray-700 sm:text-4xl">
+            <h1 className="text-2xl font-extrabold  leading-15 text-gray-700 sm:text-4xl">
               AI-Powered Job Finder.
             </h1>
           </div>
         </div>
       </div>
 
-      <div className="mt-10 items-center justify-center ">
+      <div className="mt-10 items-center justify-center p-2">
         <div class="mx-auto max-w-[850px] bg-white border border-indigo/400/30 rounded-lg shadow-lg ">
           <iframe
             className="w-full aspect-video border-indigo/400/30 rounded-lg shadow-lg"
