@@ -6,7 +6,7 @@ import Job from "./Pages/Job";
 import SignUp from "./Pages/SignUp";
 
 const App = () => {
-  const [modal, setModal] = useState(true);
+  
   return (
     <>
       
@@ -15,7 +15,7 @@ const App = () => {
       <div className="relative  w-full">
 
           <Routes>
-            <Route path="/" element={<Home setModal={setModal} modal={modal} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/job/:jobId" element={<Job />} />
             <Route path="/signup" element={<SignUp />} />

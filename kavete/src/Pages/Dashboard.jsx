@@ -84,6 +84,7 @@ const Dashboard = () => {
             <p className="text-sm text-gray-400">{job.locations.length > 0 ? job.locations[0].name : 'No location available'}</p>
             <p className="text-sm text-gray-400">{job.company.name}</p>
             <p className="text-sm text-gray-400">{new Date(job.publication_date).toLocaleDateString()}</p>
+            <p><span>Apply</span><span>Save</span><span>foward</span></p>
             </div>
             
           </Link>

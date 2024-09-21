@@ -25,7 +25,7 @@ const AuthDetails = () => {
 
   return (
     <div>
-        {authUser ? <><p>{`Logged In ${authUser.email}`}</p> <button onClick={usersignOut}>Log Out</button></>: <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={()=>setModal}>LogIn</button> }
+        {authUser ? <><p>{`Logged In ${authUser.email}`}</p> <button onClick={usersignOut}>Log Out</button></>: <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' >LogIn</button> }
         
         </div>
   )

@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import demo from "../assets/kavete_main_pic.png";
 import Tag from "./Tag";
+import  Modal  from "./Modal";
 
 const Hero = () => {
   return (
+    <>
+    
     <section id="home" className="hero-section text-center mt-10 flex flex-col">
       <Tag>
         <div className="flex items-center cursor-pointer">
@@ -36,6 +39,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
