@@ -32,22 +32,32 @@ const Dashboard = () => {
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
+  const closeModal = () => {
+    setModalVisible(false);
+  }
+
   return (
     <>
       <div className="w-full  px-3 max-w-[850px] mx-auto">
+        <div className="mt-10 w-full  items-center justify-start flex rounded-lg bottom-0">
         <button
-          className="bg-black px-4 py-2 rounded-md text-white cursor-pointer"
+          className="bg-black px-4 py-2 rounded-md text-white cursor-pointer mr-4"
           onClick={toggleModal}
         >
-          + My Jobs
+          Sign In
         </button>
+        
+          <Link className="bg-black px-4 py-2 rounded-md text-white cursor-pointer" to={"/"}>Home</Link>
+      
+        </div>
+       
         {/* Dashboard Modal */}
         <div className={`${modalVisible ? "" : "hidden"} absolute flex `}>
-          <Modal />
+          <Modal closeModal={closeModal} />
         </div>
         {/* Dashboard Modal */}
 
-        <div className="mt-10 grid items-center grid-cols-1 gap-3  w-full">
+        <div className="mt-5 grid items-center grid-cols-1 gap-3  w-full">
           <div className="flex items-center sticky bg-white rounded-lg shadow-lg p-6 h-full">
             <form className="flex flex-col sm:flex-row items-start gap-3">
               <div>
