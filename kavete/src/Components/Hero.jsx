@@ -1,8 +1,11 @@
+import { useState } from "react";
 import Tag from "./Tag";
 import { motion } from "framer-motion";
+import { BriefcaseBusiness } from 'lucide-react';
 
 
 const Hero = () => {
+
 
   return (
     <>
@@ -15,14 +18,23 @@ const Hero = () => {
       </Tag>
 
       <div className="mx-auto max-w-[850px] mb-4 px-5">
-        <motion.div whileHover={{ scale: 1.1  }} className="flex sm:grid-cols-2 cursor-pointer bg-white p-2 shadow-lg rounded-lg">
-          <div className="justify-start border border-gray-400 p-2">
+        <motion.div whileHover={{ scale: 1.1  }} className="flex grid-cols-1 sm:grid-cols-2 cursor-pointer bg-white p-2 shadow-lg rounded-lg">
+          <div className="justify-start  p-2">
             <h1 className="text-2xl font-extrabold  leading-15 text-gray-700 sm:text-4xl">
-              AI-Powered Job Finder.
+              AI Job Finder
             </h1>
           </div>
-        </motion.div>
+      <div>
+      <div className="bg-white border border-gray-300 w-12 h-12 flex justify-center items-center rounded-full shadow-lg" >
+      <BriefcaseBusiness />
       </div>
+      </div>
+      
+      
+    
+        </motion.div>
+        </div>
+      
 
       <div className="mt-10 items-center justify-center p-2">
         <div class="mx-auto max-w-[850px] bg-white border border-indigo/400/30 rounded-lg shadow-lg ">
