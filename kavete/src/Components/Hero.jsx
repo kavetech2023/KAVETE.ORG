@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import demo from "../assets/kavete_main_pic.png";
 import Tag from "./Tag";
-import  Modal  from "./Modal";
+import { motion } from "framer-motion";
+
 
 const Hero = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <>
     
@@ -15,13 +16,13 @@ const Hero = () => {
       </Tag>
 
       <div className="mx-auto max-w-[850px] mb-4 px-5">
-        <div className="flex sm:grid-cols-2  bg-white p-2 shadow-lg rounded-lg">
+        <motion.div whileHover={{ scale: 1.1  }} className="flex sm:grid-cols-2 cursor-pointer bg-white p-2 shadow-lg rounded-lg">
           <div className="justify-start border border-gray-400 p-2">
             <h1 className="text-2xl font-extrabold  leading-15 text-gray-700 sm:text-4xl">
               AI-Powered Job Finder.
             </h1>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="mt-10 items-center justify-center p-2">

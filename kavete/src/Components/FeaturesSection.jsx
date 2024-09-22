@@ -25,10 +25,10 @@ const FeaturesSection = () => {
           </div>
           </div>
         <div>
-        <div className="">
+        <div className="mt-10">
             {
             features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-4  border-gray-200 rounded-lg shadow-lg p-6 h-full">
+                    <div key={index} className="flex items-center space-x-4  border-gray-200  p-6 h-full">
                         <div className="flex justify-between">
                             <div className="mt-1">
                             {feature.icon === "1" && <ScanEye />}
