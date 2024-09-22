@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 
 
 const Hero = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+
   return (
     <>
     
