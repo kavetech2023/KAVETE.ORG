@@ -39,7 +39,7 @@ const Navbar = () => {
             <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={toggleModal}>+ My Jobs</button>
           </div>
           <div className={`${modalVisible ? "" : "hidden"} absolute flex `}>
-            <Modal onClose={closeModal}/>
+            <Modal />
           </div>
           <MobileMenu />
         </div>
