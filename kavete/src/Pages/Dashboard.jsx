@@ -29,33 +29,14 @@ const Dashboard = () => {
   };
   return (
     <>
-      <div className="sticky inset-x-0 top-0 w-full z-30">
-        <div className="border-b border-black/10 bg-white/75 backdrop-blur-lg transition-all absolute inset-0 -z-1"></div>
-        <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20 relative">
-          <div className="flex items-center p-2 justify-between">
-            <div>
-              <Link to={"/"}>
-                <img src={logo} alt="logo" className="w-20" />
-              </Link>
-            </div>
 
-            <div className="hidden md:block">
-              <button className="bg-black px-4 py-2 rounded-md text-white cursor-pointer">
-                + My Jobs
-              </button>
-            </div>
-
-            <MobileMenu />
-          </div>
-        </div>
-      </div>
       <div className="w-full  px-3 max-w-[850px] mx-auto">
         {/* Dashboard Navbar */}
 
         {/* Dashboard Navbar */}
 
         <div className="mt-10 grid items-center grid-cols-1 gap-3  w-full">
-          <div className="flex items-center bg-white rounded-lg shadow-lg p-6 h-full">
+          <div className="flex items-center sticky bg-white rounded-lg shadow-lg p-6 h-full">
             <form className="flex flex-col sm:flex-row items-start gap-3">
               <div>
                 <label htmlFor="category">Select Job Category</label>
@@ -94,13 +75,15 @@ const Dashboard = () => {
             </form>
           </div>
 
+          
+
           {allJobs?.results &&
             allJobs.results.map((job, index) => (
               <div
-                className="flex  flex-col  bg-white rounded-lg shadow-lg p-6 h-full hover:bg-slate-100"
+                className="flex  flex-col  bg-white h-full rounded-lg shadow-lg p-6  hover:bg-slate-100"
                 key={index}
               >
-                <div className="z-20 relative  bg-white shadow-lg h-auto w-6 p-2 rounded-full flex-shrink-0">
+                <div className="z-20 flex items-center justify-center border mb-4 bg-indigo-500 text-white shadow-lg h-5 w-5 p-4 rounded-full flex-shrink-0">
                   {index + 1}
                 </div>
                 <div>
@@ -117,10 +100,9 @@ const Dashboard = () => {
                   <p className="">
                     {new Date(job.publication_date).toLocaleDateString()}
                   </p>
-                  <p
+                  <p className="hidden"
                     style={{
                       flexDirection: "column",
-                      display: "flex",
                       fontSize: "13px",
                     }}
                     dangerouslySetInnerHTML={{

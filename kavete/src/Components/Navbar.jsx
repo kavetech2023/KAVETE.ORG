@@ -14,10 +14,7 @@ const Navbar = () => {
     setModalVisible(!modalVisible);
   };
 
-  const closeModal = () => {
-    setModalVisible(false);
-  }
-
+  
 
   return (
     <div className='sticky inset-x-0 top-0 w-full z-30'>
@@ -42,7 +39,7 @@ const Navbar = () => {
             <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={toggleModal}>+ My Jobs</button>
           </div>
           <div className={`${modalVisible ? "" : "hidden"} absolute flex `}>
-            <Modal />
+            <Modal onClose={closeModal}/>
           </div>
           <MobileMenu />
         </div>

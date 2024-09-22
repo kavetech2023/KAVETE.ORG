@@ -6,7 +6,7 @@ import Job from "./Pages/Job";
 import SignUp from "./Pages/SignUp";
 
 const App = () => {
-  
+
   return (
     <>
       
