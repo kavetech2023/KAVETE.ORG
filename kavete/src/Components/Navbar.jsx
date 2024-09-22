@@ -8,11 +8,9 @@ import Modal from './Modal';
 const Navbar = () => {
   const [menu, setMenu] = useState('home');
   const menuRef = useRef();
-  const [modalVisible, setModalVisible] = useState(false);
+  
 
-  const toggleModal = () => {
-    setModalVisible(!modalVisible);
-  };
+
 
   
 
@@ -36,11 +34,9 @@ const Navbar = () => {
             </ul>
           </nav>
           <div className='hidden md:block'>
-            <button className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' onClick={toggleModal}>+ My Jobs</button>
+            <Link to={"/dashboard"} className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' >+ My Jobs</Link>
           </div>
-          <div className={`${modalVisible ? "" : "hidden"} absolute flex `}>
-            <Modal />
-          </div>
+          
           <MobileMenu />
         </div>
       </div>

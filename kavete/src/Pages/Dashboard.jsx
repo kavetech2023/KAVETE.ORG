@@ -3,14 +3,15 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { JobContext } from "../Context/JobContext";
 import { categories } from "../Data/categories";
-import MobileMenu from "../Components/MobileMenu";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
+import  Modal  from "../Components/Modal";
 
 const Dashboard = () => {
   const { allJobs, category, level, setJobLevel, setCategory, setPage } =
     useContext(JobContext);
 
   const [displayJob, setDisplayJob] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const categoryHandler = (e) => {
     setCategory(e.target.value);
@@ -27,13 +28,24 @@ const Dashboard = () => {
   const handlePageClick = (pageNumber) => {
     setPage(pageNumber);
   };
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
   return (
     <>
-
       <div className="w-full  px-3 max-w-[850px] mx-auto">
-        {/* Dashboard Navbar */}
-
-        {/* Dashboard Navbar */}
+        <button
+          className="bg-black px-4 py-2 rounded-md text-white cursor-pointer"
+          onClick={toggleModal}
+        >
+          + My Jobs
+        </button>
+        {/* Dashboard Modal */}
+        <div className={`${modalVisible ? "" : "hidden"} absolute flex `}>
+          <Modal />
+        </div>
+        {/* Dashboard Modal */}
 
         <div className="mt-10 grid items-center grid-cols-1 gap-3  w-full">
           <div className="flex items-center sticky bg-white rounded-lg shadow-lg p-6 h-full">
@@ -43,7 +55,7 @@ const Dashboard = () => {
                 <select
                   onChange={categoryHandler}
                   value={category}
-                  className='w-full sm:w-[300px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                  className="w-full sm:w-[300px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   <option defaultValue={"Design%20and%20UX"}>
                     Select Job Category
@@ -75,8 +87,6 @@ const Dashboard = () => {
             </form>
           </div>
 
-          
-
           {allJobs?.results &&
             allJobs.results.map((job, index) => (
               <div
@@ -100,7 +110,8 @@ const Dashboard = () => {
                   <p className="">
                     {new Date(job.publication_date).toLocaleDateString()}
                   </p>
-                  <p className="hidden"
+                  <p
+                    className="hidden"
                     style={{
                       flexDirection: "column",
                       fontSize: "13px",
