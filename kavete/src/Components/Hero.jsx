@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Tag from "./Tag";
 import { motion } from "framer-motion";
 import { BriefcaseBusiness } from 'lucide-react';
 
@@ -11,11 +10,7 @@ const Hero = () => {
     <>
     
     <section id="home" className="hero-section text-center mt-10 flex flex-col">
-      <Tag>
-        <div className="flex items-center cursor-pointer">
-          <span>Kavete v0.1</span>
-        </div>
-      </Tag>
+      
 
       <div className="mx-auto max-w-[850px] mb-4 px-5">
         <motion.div whileHover={{ scale: 1.1  }} className="flex grid-cols-1 sm:grid-cols-2 cursor-pointer bg-white p-2 shadow-lg rounded-lg">
