@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { JobContext } from "../Context/JobContext";
 import { categories } from "../Data/categories";
-import { motion } from "framer-motion";
 import  Modal  from "../Components/Modal";
 import {auth} from './firebase.js'
 import { onAuthStateChanged, signOut} from '@firebase/auth'
