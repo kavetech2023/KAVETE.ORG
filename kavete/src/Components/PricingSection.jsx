@@ -1,4 +1,3 @@
-import { pricingPlans } from "../Data/pricing"
 import PlanCard from "./PlanCard"
 import TagLine from "./TagLine"
 

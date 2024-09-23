@@ -34,7 +34,7 @@ const Job = ({ setNotification }) => {
 
   return (
     <div className='w-full  px-3'>
-      <Sidebar />
+     
             <div className="flex items-start md:ml-16 lg:ml-64 p-2  flex-col">
        
         {/* Dashboard Navbar */}
