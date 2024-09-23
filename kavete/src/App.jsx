@@ -1,8 +1,7 @@
-import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import Home from "./Pages/Home";
-import SignUp from "./Pages/SignUp";
+import Edit from "./Pages/Edit";
 
 const App = () => {
 
@@ -16,7 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/edit" element={<Edit />} />
           </Routes>
         
       </div>
