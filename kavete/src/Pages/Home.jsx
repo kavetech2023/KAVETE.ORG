@@ -8,8 +8,7 @@ import Footer from '../Components/Footer'
 import RoadMap from '../Components/RoadMap'
 import Navbar from '../Components/Navbar'
 import Features from '../Components/Features'
-import AuthDetails from './AuthDetails'
-import Modal from '../Components/Modal'
+
 
 
 const Home = () => {
