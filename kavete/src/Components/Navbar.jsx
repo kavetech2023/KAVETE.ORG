@@ -3,7 +3,6 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import MobileMenu from './MobileMenu';
 import logo from "../assets/logo.png";
 import { useRef, useState } from 'react';
-import Modal from './Modal';
 
 const Navbar = () => {
   const [menu, setMenu] = useState('home');
