@@ -1,41 +1,49 @@
-import {motion} from 'framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
+
 const Milestone = ({ title, description, icon, lastItem }) => {
   return (
-    <div
-    id="work" className="flex w-full cursor-grab">
-      <div className="relative flex flex-row items-center h-32">
+    <div id="work" className="flex w-full items-start mb-8 relative">
+      <div className="flex flex-col items-center mr-4">
         <motion.div 
-        drag
-        dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-        dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
-        whileHover={{ scale: 1.1  }}
-        className="z-20 bg-white shadow-lg h-auto w-full p-2 rounded-full flex-shrink-0 relative">
+          drag
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+          whileHover={{ scale: 1.1 }}
+          className="z-20 bg-white shadow-lg p-3 rounded-full flex-shrink-0 cursor-grab"
+        >
           {icon}
         </motion.div>
-        
+        {!lastItem && (
+          <div className="w-0.5 h-full bg-gray-200 absolute top-12 left-6 -z-10"></div>
+        )}
       </div>
 
-      <div class="flex flex-col w-full max-w-[320px] leading-1.5 ml-4 mb-7 p-4 hover:bg-slate-200 border-gray-200 bg-white rounded-e-xl rounded-es-xl drop-shadow-lg">
-        <div class="flex items-center space-x-2 rtl:space-x-reverse">
-          <span class="text-sm font-semibold text-gray-900 ">
-            {title}
-          </span>
-          <span class="text-sm font-normal text-gray-500 ">
-            11:46
-          </span>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden"
+      >
+        <div className="bg-primary text-white p-4">
+          <h3 className="text-lg font-semibold">{title}</h3>
+          <span className="text-sm opacity-75">11:46</span>
         </div>
-        <p class="text-sm font-normal py-2.5 text-gray-900">
-          {description}.
-        </p>
-        
-      
-
-      </div>
-   
-
-      {!lastItem && <div className="milestone_line"></div>}
+        <div className="p-4">
+          <p className="text-sm text-gray-600">{description}</p>
+        </div>
+        <div className="bg-gray-50 px-4 py-3 mt-auto">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-primary text-sm font-medium hover:underline"
+          >
+            Learn More
+          </motion.button>
+        </div>
+      </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export default Milestone;
+export default Milestone
