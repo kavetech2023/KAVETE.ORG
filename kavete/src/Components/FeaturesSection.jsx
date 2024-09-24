@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle } from 'lucide-react'
+import demo from '../assets/demo.jpeg'
 
 
 const FeatureItem = ({ text }) => (
@@ -33,7 +34,7 @@ const FeaturesSection = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl transform rotate-3 scale-105 opacity-20 blur-xl"></div>
               <img
-                src="/placeholder.svg?height=600&width=600"
+                src={demo}
                 alt="Product showcase"
                 className="relative rounded-3xl shadow-2xl"
               />
