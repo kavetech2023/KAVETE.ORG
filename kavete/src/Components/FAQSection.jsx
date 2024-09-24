@@ -32,28 +32,28 @@ const FAQItem = ({ question, answer }) => {
 const FAQSection = () => {
   const faqs = [
     {
-      question: "What is AI Job Finder?",
-      answer: "AI Job Finder is an innovative platform that uses artificial intelligence to match job seekers with the most suitable job opportunities based on their skills, experience, and preferences."
+      question: "What is Kavete.org?",
+      answer: "Kavete.org is an innovative platform that uses artificial intelligence to match job seekers with the most suitable job opportunities based on their skills, experience, and preferences."
     },
     {
-      question: "How does AI Job Finder work?",
+      question: "How does Kavete.org work?",
       answer: "Our AI analyzes your profile and job preferences, then scans thousands of job listings to find the best matches. It continuously learns from your interactions to improve its recommendations over time."
     },
     {
-      question: "Is AI Job Finder free to use?",
-      answer: "We offer a free basic plan with limited features. For full access to all our AI-powered tools and premium job listings, we have affordable subscription plans available."
+      question: "Is Kavete.org free to use?",
+      answer: "Yes, Kavete.org is completely free for job seekers. We earn revenue by charging employers to post job listings on our platform."
     },
     // Add more FAQs as needed
   ];
 
   return (
-    <section id="faq" className="py-20 bg-gray-50">
+    <section id="faqs" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <TagLine>FAQs</TagLine>
+        
         <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
           Frequently Asked Questions
         </h2>
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl">
+        <div className="max-w-3xl mx-auto bg-white p-3 rounded-2xl shadow-xl">
           {faqs.map((faq, index) => (
             <FAQItem key={index} question={faq.question} answer={faq.answer} />
           ))}
