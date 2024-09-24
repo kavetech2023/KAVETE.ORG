@@ -2,204 +2,212 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { JobContext } from "../Context/JobContext";
 import { categories } from "../Data/categories";
-import {auth,provider} from './firebase.js'
-import { onAuthStateChanged, signInWithPopup, signOut} from '@firebase/auth'
-import { House } from 'lucide-react';
-import { FileText } from 'lucide-react';
+import { auth, provider } from './firebase.js';
+import { onAuthStateChanged, signInWithPopup, signOut } from '@firebase/auth';
+import { House, FileText, ChevronDown, ChevronUp } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
-  const { allJobs, category, level, setJobLevel, setCategory, setPage, setSaved } =
-    useContext(JobContext);
-
-  const [displayJob, setDisplayJob] = useState([]);
-  const [modalVisible, setModalVisible] = useState(false);
+  const { allJobs, category, level, setJobLevel, setCategory, setPage, setSaved } = useContext(JobContext);
   const [activeIndex, setActiveIndex] = useState(-1);
-  const [authUser, setAuthUser] = useState(null)
-
+  const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
-  
 
   const categoryHandler = (e) => {
     setCategory(e.target.value);
     setPage(1);
   };
+
   const levelHandler = (e) => {
     setJobLevel(e.target.value);
   };
 
-  useEffect(() => {
-    setDisplayJob(allJobs);
-  }, [allJobs]);
-
   const handlePageClick = (pageNumber) => {
     setPage(pageNumber);
   };
-  const notify = () => toast("This Job has been saved to your profile");
+
+  const notify = () => toast.success("This Job has been saved to your profile");
 
   const signInGoogle = async () => {
-    signInWithPopup(auth, provider).then((result) => {setEmail(result.user.email)}).catch((error) => {console.log(error.message)})
-    localStorage.setItem('email', result.useremail)
+    try {
+      const result = await signInWithPopup(auth, provider);
+      localStorage.setItem('email', result.user.email);
+    } catch (error) {
+      console.error("Error signing in with Google:", error.message);
+    }
+  };
 
-}
+  const userSignOut = () => {
+    signOut(auth).catch((error) => console.error("Error signing out:", error));
+  };
 
-  const usersignOut = () => {
-    signOut(auth)
-}
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setAuthUser(user);
+    });
 
-  
+    return () => unsubscribe();
+  }, []);
 
-    useEffect(() => {
-        const listen = onAuthStateChanged(auth, (user) => {
-            if(user){
-                setAuthUser(user)
-            }else{
-                setAuthUser(null)
-            }
-        })
+  const toggleJobDetails = (index) => {
+    setActiveIndex(activeIndex === index ? -1 : index);
+  };
 
-    }, [])
+  const handleGenerateResume = (job) => {
+    setSaved(job.contents);
+    notify();
+    setTimeout(() => {
+      navigate('/edit');
+    }, 2000);
+  };
 
   return (
-    <>
-    <ToastContainer />
-      <div className="w-full  px-3 max-w-[850px] mx-auto">
-        <div className="mt-10 w-full  items-center justify-start gap-2 flex rounded-lg bottom-0">
-        {authUser ? <>
-       
-        <img src={authUser.photoURL} className="rounded-full w-12 h-12 shadow-lg border border-white "/>
-        <div className="flex flex-col">
-        <p>{` ${authUser.displayName}`}</p>{console.log(authUser)}
-        <p className="cursor-pointer" onClick={usersignOut}>logout</p>
-        </div>
-        </>:
-       <button onClick={signInGoogle} className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
-       <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
-       <path fill-rule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clip-rule="evenodd"/>
-       </svg>
-       Sign in with Google
-       </button>
-        }
-          <Link className="px-4 py-2 rounded-md text-white cursor-pointer bg-indigo-400" to={"/"}> <span><House /></span></Link>
-          <Link className="px-4 py-2 rounded-md text-white cursor-pointer bg-indigo-400" to={"/edit"}> <span><FileText /></span></Link>
-        
-      
-        </div>
-       
-     
-
-        <div className="mt-5 grid items-center grid-cols-1 gap-3  w-full">
-          <div className="flex items-center sticky bg-white rounded-lg shadow-lg p-6 h-full">
-            <form className="grid grid-cols-1 sm:grid-cols-3  gap-3">
-              <div>
-                <label htmlFor="category">Select Job Category</label>
-                
-                <select
-                  onChange={categoryHandler}
-                  value={category}
-                  className=" w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                >
-                  <option defaultValue={"Design%20and%20UX"}>
-                    Select Job Category
-                  </option>
-                  {categories.map((category, index) => (
-                    <option key={index} value={category}>
-                      {category
-                        .replace(/%20/g, " ")
-                        .replace(/%2F/g, "/")
-                        .replace(/%2C/g, "")}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="level">Level</label>
-                <select
-                  onChange={levelHandler}
-                  value={level}
-                  className=" w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                >
-                  <option value="">All Job Levels</option>
-                  <option value="Mid%20Level">Mid Level</option>
-                  <option value="Senior%20Level">Senior Level</option>
-                  <option value="management">Management</option>
-                </select>
-              </div>
-
-              <div>
-              <label htmlFor="level">Level</label>
-              <select className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
-                <option value="">Country</option>
-              </select>
-
-              </div>
-            </form>
-          </div>
-
-          {allJobs?.results &&
-            allJobs.results.map((job, index) => (
-              <div
-                className="flex  flex-col  bg-white h-full rounded-lg shadow-lg p-6  hover:bg-slate-100"
-                key={index} 
-              >
-                <div className="z-20 flex items-center justify-center border mb-4 bg-indigo-500 text-white shadow-lg h-5 w-5 p-4 rounded-full flex-shrink-0">
-                  {index + 1}
-                </div>
-                <div>
-                  <p className="font-bold text-2xl"> {job.name}</p>
-                </div>
-
-                <div className="">
-                  <p className="mt-2"><span>Company Location: </span>
-                    {job.locations.length > 0
-                      ? job.locations[0].name
-                      : "No location available"}
-                  </p>
-                  <p className="mt-2"><span>Company Name: </span>{job.company.name}</p>
-                  <p className="mt-2 mb-2"><span>Publication Date: </span>
-                    {new Date(job.publication_date).toLocaleDateString()}
-                  </p>
-                  <p
-                    className={activeIndex===index?"":"hidden"}
-                    style={{
-                      flexDirection: "column",
-                      fontSize: "14px",
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: job.contents,
-                    }}
-                  />
-                  <div className="flex gap-2 mt-2">
-                    <button className="p-2 right-0 text-xs font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => setActiveIndex(index)}>See more </button>
-                    <div className={activeIndex===index? "": "hidden"}>
-                    <button onClick={() => {
-                  setSaved(job.contents); notify();  setTimeout(() => {
-                    navigate('/edit');
-                  }, 2000);
-                }} className="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-2">Generate Resume & Cover Letter</button>
-                    
-                    </div>
+    <div className="min-h-screen bg-gray-100">
+      <ToastContainer position="top-right" autoClose={2000} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-white shadow-md rounded-lg p-6 mb-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              {authUser ? (
+                <>
+                  <img src={authUser.photoURL} alt="User" className="w-12 h-12 rounded-full shadow-lg border-2 border-indigo-500" />
+                  <div>
+                    <p className="font-semibold text-lg">{authUser.displayName}</p>
+                    <button onClick={userSignOut} className="text-sm text-indigo-600 hover:text-indigo-800">Sign Out</button>
                   </div>
-                </div>
-              </div>
-            ))}
-          <div className="flex justify-center items-center gap-4 cursor-pointer">
-            {[1, 2, 3, 4, 5].map((pageNumber) => (
-              <p
-                key={pageNumber}
-                className="paginate"
-                onClick={() => handlePageClick(pageNumber)}
-              >
-                <span className="z-20 flex items-center justify-center border mb-4 bg-indigo-500 text-white shadow-lg h-5 w-5 p-4 rounded-full flex-shrink-0">{pageNumber}</span>
-              </p>
-            ))}
+                </>
+              ) : (
+                <button onClick={signInGoogle} className="flex items-center space-x-2 bg-white text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                  <span>Sign in with Google</span>
+                </button>
+              )}
+            </div>
+            <div className="flex space-x-2">
+              <Link to="/" className="bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
+                <House size={20} />
+              </Link>
+              <Link to="/edit" className="bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
+                <FileText size={20} />
+              </Link>
+            </div>
           </div>
         </div>
-       
+
+        <div className="bg-white shadow-md rounded-lg p-6 mb-8">
+          <form className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Job Category</label>
+              <select
+                id="category"
+                onChange={categoryHandler}
+                value={category}
+                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              >
+                <option value="">Select Job Category</option>
+                {categories.map((cat, index) => (
+                  <option key={index} value={cat}>
+                    {cat.replace(/%20/g, " ").replace(/%2F/g, "/").replace(/%2C/g, "")}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="level" className="block text-sm font-medium text-gray-700 mb-1">Job Level</label>
+              <select
+                id="level"
+                onChange={levelHandler}
+                value={level}
+                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              >
+                <option value="">All Job Levels</option>
+                <option value="Mid%20Level">Mid Level</option>
+                <option value="Senior%20Level">Senior Level</option>
+                <option value="management">Management</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+              <select
+                id="country"
+                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              >
+                <option value="">Select Country</option>
+                {/* Add country options here */}
+              </select>
+            </div>
+          </form>
+        </div>
+
+        <div className="space-y-6">
+          {allJobs?.results && allJobs.results.map((job, index) => (
+            <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-bold text-gray-900">{job.name}</h2>
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-500 text-white font-semibold text-sm">
+                    {index + 1}
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-2"><span className="font-semibold">Company Location:</span> {job.locations.length > 0 ? job.locations[0].name : "No location available"}</p>
+                <p className="text-gray-600 mb-2"><span className="font-semibold">Company Name:</span> {job.company.name}</p>
+                <p className="text-gray-600 mb-4"><span className="font-semibold">Publication Date:</span> {new Date(job.publication_date).toLocaleDateString()}</p>
+                
+                <div className="mt-4 flex items-center space-x-4">
+                  <button
+                    onClick={() => toggleJobDetails(index)}
+                    className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    {activeIndex === index ? (
+                      <>
+                        <span>See less</span>
+                        <ChevronUp className="ml-2 h-4 w-4" />
+                      </>
+                    ) : (
+                      <>
+                        <span>See more</span>
+                        <ChevronDown className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </button>
+                  {activeIndex === index && (
+                    <button
+                      onClick={() => handleGenerateResume(job)}
+                      className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                      Generate Resume & Cover Letter
+                    </button>
+                  )}
+                </div>
+              </div>
+              {activeIndex === index && (
+                <div className="px-6 pb-6">
+                  <div className="mt-4 prose max-w-none" dangerouslySetInnerHTML={{ __html: job.contents }} />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center items-center space-x-2 mt-8">
+          {[1, 2, 3, 4, 5].map((pageNumber) => (
+            <button
+              key={pageNumber}
+              onClick={() => handlePageClick(pageNumber)}
+              className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-800 font-semibold text-sm hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              {pageNumber}
+            </button>
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
