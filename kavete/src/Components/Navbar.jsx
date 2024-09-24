@@ -8,10 +8,9 @@ import logo from "../assets/logo.png"
 
 const navItems = [
   { name: 'Home', href: '#home', offset: 100 },
-  { name: 'How it Works', href: '#work', offset: 250 },
-  { name: 'Services', href: '#services', offset: 100 },
+  { name: 'How it Works', href: '#work', offset: 50 },
   { name: 'Testimonials', href: '#testimonials', offset: 80 },
-  { name: 'FAQs', href: '#pricing', offset: 50 },
+  { name: 'FAQs', href: '#faqs', offset: 50 },
 ]
 
 const Navbar = () => {
