@@ -1,46 +1,72 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import MobileMenu from './MobileMenu';
-import logo from "../assets/logo.png";
-import { useRef, useState } from 'react';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { motion } from 'framer-motion'
+import { Menu } from 'lucide-react'
+import MobileMenu from './MobileMenu'
+import logo from "../assets/logo.png"
+
+const navItems = [
+  { name: 'Home', href: '#home', offset: 100 },
+  { name: 'How it Works', href: '#work', offset: 250 },
+  { name: 'Services', href: '#services', offset: 100 },
+  { name: 'Testimonials', href: '#testimonials', offset: 80 },
+  { name: 'FAQs', href: '#pricing', offset: 50 },
+]
 
 const Navbar = () => {
-  const [menu, setMenu] = useState('home');
-  const menuRef = useRef();
-  
-
-
-
-  
+  const [activeMenu, setActiveMenu] = useState('home')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className='sticky inset-x-0 top-0 w-full z-30'>
-      <div className="border-b border-black/10 bg-white/75 backdrop-blur-lg transition-all absolute inset-0 -z-1"></div>
-      <div className='mx-auto w-full max-w-screen-xl px-2.5 lg:px-20 relative'>
-        <div className='flex items-center p-2 justify-between'>
-          <div>
-            <Link to={"/"}>
-              <img src={logo} alt="logo" className='w-20' />
-            </Link>
+    <header className="sticky top-0 z-50 w-full">
+      <div className="bg-white/80 backdrop-blur-lg shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex-shrink-0">
+              <Link to="/" className="flex items-center">
+                <img className="h-8 w-auto" src={logo} alt="Logo" />
+              </Link>
+            </div>
+            <nav className="hidden md:flex space-x-8">
+              {navItems.map((item) => (
+                <AnchorLink
+                  key={item.name}
+                  href={item.href}
+                  offset={item.offset}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    activeMenu === item.name.toLowerCase() ? 'text-primary' : 'text-gray-700'
+                  }`}
+                  onClick={() => setActiveMenu(item.name.toLowerCase())}
+                >
+                  {item.name}
+                </AnchorLink>
+              ))}
+            </nav>
+            <div className="hidden md:block">
+              <Link
+                to="/dashboard"
+                className="inline-flex bg-black items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-dark transition-colors"
+              >
+                + My Jobs
+              </Link>
+            </div>
+            <div className="flex md:hidden">
+              <button
+                type="button"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(true)}
+              >
+                <span className="sr-only">Open main menu</span>
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
           </div>
-          <nav className='hidden md:block'>
-            <ul ref={menuRef} className='flex flex-row space-x-4 p-4'>
-              <li><AnchorLink className='anchor-link' offset={100} href="#home"><p className={`${menu === "home" ? "font-bold" : ""}`} onClick={() => setMenu("home")}>Home</p></AnchorLink></li>
-              <li><AnchorLink className='anchor-link' offset={250} href="#work"><p className={`${menu === "about" ? "font-bold" : ""}`} onClick={() => setMenu("about")}>How it Works</p></AnchorLink></li>
-              <li><AnchorLink className='anchor-link' offset={100} href="#services"><p className={`${menu === "services" ? "font-bold" : ""}`} onClick={() => setMenu("services")}>Services</p></AnchorLink></li>
-              <li><AnchorLink className='anchor-link' offset={80} href="#testimonials"><p className={`${menu === "testimonials" ? "font-bold" : ""}`} onClick={() => setMenu("testimonials")}>Testimonials</p></AnchorLink></li>
-              <li><AnchorLink className='anchor-link' offset={50} href="#pricing"><p className={`${menu === "pricing" ? "font-bold" : ""}`} onClick={() => setMenu("pricing")}>FAQs</p></AnchorLink></li>
-            </ul>
-          </nav>
-          <div className='hidden md:block'>
-            <Link to={"/dashboard"} className='bg-black px-4 py-2 rounded-md text-white cursor-pointer' >+ My Jobs</Link>
-          </div>
-          
-          <MobileMenu />
         </div>
       </div>
-    </div>
-  );
-};
+      <MobileMenu open={mobileMenuOpen} setOpen={setMobileMenuOpen} />
+    </header>
+  )
+}
 
-export default Navbar;
+export default Navbar
