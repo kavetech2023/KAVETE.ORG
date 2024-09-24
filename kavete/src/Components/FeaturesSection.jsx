@@ -1,68 +1,86 @@
 import React from 'react'
-import { features } from "../Data/features"
-import TagLine from "./TagLine"
-import { ScanEye, FileSearch, MessageSquare, BriefcaseBusiness, CircleDollarSign, ChartNoAxesCombined } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 
-const iconMap = {
-  "1": ScanEye,
-  "2": FileSearch,
-  "3": MessageSquare,
-  "4": BriefcaseBusiness,
-  "5": CircleDollarSign,
-  "6": ChartNoAxesCombined
-}
 
-const FeatureItem = ({ icon, title, description }) => {
-  const Icon = iconMap[icon]
-  return (
-    <div className="flex items-start space-x-4 p-4 rounded-lg transition duration-300 ease-in-out hover:bg-gray-100">
-      <div className="flex-shrink-0">
-        <Icon className="h-6 w-6 text-primary" />
-      </div>
-      <div>
-        <h3 className="font-bold text-lg mb-1">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-      </div>
-    </div>
-  )
-}
-
-const PhoneMockup = () => (
-  <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
-    <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
-    <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
-    <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
-    <div className="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
-    <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-      <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-light.png" className="dark:hidden w-[272px] h-[572px]" alt="App interface light mode" />
-      <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-dark.png" className="hidden dark:block w-[272px] h-[572px]" alt="App interface dark mode" />
-    </div>
-  </div>
+const FeatureItem = ({ text }) => (
+  <motion.li
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="flex items-center space-x-2 text-gray-700"
+  >
+    <CheckCircle className="h-5 w-5 text-emerald-500" />
+    <span>{text}</span>
+  </motion.li>
 )
+
+
 
 const FeaturesSection = () => {
   return (
-    <section id="services" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <TagLine>Services</TagLine>
-          <h2 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            What we do
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="order-2 lg:order-1">
-            <div className="grid gap-6 md:grid-cols-2">
-              {features.map((feature, index) => (
-                <FeatureItem key={index} {...feature} />
-              ))}
+    <section id='work' className="py-20 max-w-7xl overflow-hidden mx-auto">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:w-1/2"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl transform rotate-3 scale-105 opacity-20 blur-xl"></div>
+              <img
+                src="/placeholder.svg?height=600&width=600"
+                alt="Product showcase"
+                className="relative rounded-3xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-full p-4 shadow-xl">
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <svg className="w-16 h-16 text-blue-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </motion.div>
+              </div>
             </div>
-          </div>
-
-          <div className="order-1 lg:order-2 flex justify-center">
-            <PhoneMockup />
-          </div>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:w-1/2"
+          >
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+              Transform Your Workflow with
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Innovative Features</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Experience a new level of productivity with our cutting-edge tools designed to streamline your work process and boost efficiency.
+            </p>
+            <ul className="space-y-4 mb-10">
+              <FeatureItem text="AI-powered task prioritization" />
+              <FeatureItem text="Real-time collaboration tools" />
+              <FeatureItem text="Advanced analytics dashboard" />
+              <FeatureItem text="Customizable workflow templates" />
+            </ul>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center space-x-2"
+            >
+              <span>Explore Features</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </motion.div>
         </div>
       </div>
     </section>
