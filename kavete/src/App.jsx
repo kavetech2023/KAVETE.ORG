@@ -10,7 +10,7 @@ const App = () => {
       
 
 
-      <div className="relative  w-full">
+      <div className="relative  w-full bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-50">
 
           <Routes>
             <Route path="/" element={<Home />} />
