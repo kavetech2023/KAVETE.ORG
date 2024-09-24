@@ -215,7 +215,7 @@ const Edit = () => {
 
           {/* Preview */}
           <div className="w-full md:w-2/3 p-8 bg-white">
-            <div className="border-2 border-gray-200 p-6 rounded-lg shadow-inner bg-white">
+            <div className="border-2 border-gray-200 p-6 rounded-sm  bg-white">
               <h2 className="text-3xl font-bold mb-1 text-gray-800">{resumeData.name || 'Your Name'}</h2>
               <h3 className="text-xl text-gray-600 mb-2">{resumeData.title || 'Professional Title'}</h3>
               <div className="flex items-center space-x-4 mb-4 text-sm text-gray-600">
