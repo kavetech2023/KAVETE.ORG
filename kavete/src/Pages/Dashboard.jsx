@@ -172,7 +172,7 @@ const Dashboard = () => {
                     }}
                   />
                   <div className="flex gap-2 mt-2">
-                    <button className="p-2 text-xs font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => setActiveIndex(index)}>See more </button>
+                    <button className="p-2 right-0 text-xs font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => setActiveIndex(index)}>See more </button>
                     <div className={activeIndex===index? "": "hidden"}>
                     <button onClick={() => {
                   setSaved(job.contents); notify();  setTimeout(() => {
