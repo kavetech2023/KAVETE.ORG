@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import Home from "./Pages/Home";
 import Edit from "./Pages/Edit";
+import Stats from "./Pages/Stats";
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/edit" element={<Edit />} />
+            <Route path="stats" element={<Stats />} />
           </Routes>
         
       </div>
