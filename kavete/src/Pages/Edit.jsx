@@ -141,6 +141,7 @@ const Edit = () => {
     title: '',
     email: '',
     phone: '',
+    linkedin: '',
     summary: '',
     skills: '',
     experiences: [{ jobTitle: '', company: '', startDate: '', endDate: '', description: '' }],
@@ -314,10 +315,10 @@ const Edit = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
+      <div className="max-w-7xl mx-auto rounded-xl shadow-2xl overflow-hidden">
         <div className="flex flex-col md:flex-row">
           {/* Form */}
-          <div className="w-full md:w-1/2 p-8 bg-gray-50 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
+          <div className="w-full md:w-1/2 p-8 bg-gray-50 mr-3 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
             <div className="space-y-4">
               <input
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
@@ -346,6 +347,13 @@ const Edit = () => {
                 name="phone"
                 placeholder="Phone"
                 value={resumeData.phone}
+                onChange={handleInputChange}
+              />
+              <input
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+                name="linkedin"
+                placeholder="Linked In"
+                value={resumeData.linkedin}
                 onChange={handleInputChange}
               />
               <div className="relative">
@@ -451,7 +459,7 @@ const Edit = () => {
                 onClick={generateFullResume}
                 disabled={isLoading}
               >
-                {isLoading ? 'Generating...' : 'Generate Full Resume with AI'}
+                Share with Ai
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -470,8 +478,9 @@ const Edit = () => {
               <h2 className="text-3xl font-bold mb-1 text-gray-800">{resumeData.name || 'Your Name'}</h2>
               <h3 className="text-xl text-gray-600 mb-2">{resumeData.title || 'Professional Title'}</h3>
               <div className="flex items-center space-x-4 mb-4 text-sm text-gray-600">
-                {resumeData.email && <span>{resumeData.email}</span>}
+                {resumeData.email && <span className="border-r-black">{resumeData.email}</span>}
                 {resumeData.phone && <span>{resumeData.phone}</span>}
+                {resumeData.linkedin && <a href={resumeData.linkedin}>{resumeData.linkedin}</a>}
               </div>
               <hr className="my-4 border-gray-300" />
               {resumeData.summary && (

@@ -61,8 +61,8 @@ const FeaturesSection = () => {
             className="lg:w-1/2"
           >
             <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Transform Your Workflow with
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Innovative Features</span>
+              Let our Ai
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> do all the work for you. </span>
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               Experience a new level of productivity with our cutting-edge tools designed to streamline your work process and boost efficiency.

@@ -41,19 +41,14 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transition duration-300"
+                className="px-8 py-3 flex justify-center items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transition duration-300"
               >
                 Go to Jobs
+                <ArrowRight className="ml-2 h-5 w-5" />
               </motion.button>
               </Link>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-white text-gray-900 font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center"
-              >
-                Learn More <ArrowRight className="ml-2 h-5 w-5" />
-              </motion.button>
+            
             </div>
           </motion.div>
 
@@ -79,9 +74,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 1 }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
-              <div className="rounded-full bg-white/20 p-4 backdrop-blur-sm">
-                <Play className="w-16 h-16 text-white" />
-              </div>
+              
             </motion.div>
           </motion.div>
         </div>
