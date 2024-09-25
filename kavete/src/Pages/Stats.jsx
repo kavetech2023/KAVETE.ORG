@@ -119,7 +119,7 @@ export default function Stats() {
       </div>
 
       {/* Main Content */}
-      <div style={mainContentStyle} className='w-full bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-50'>
+      <div style={mainContentStyle} className='w-full '>
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           style={{

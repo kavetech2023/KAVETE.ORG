@@ -63,7 +63,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen ">
       <ToastContainer position="top-right" autoClose={2000} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white shadow-md rounded-lg p-6 mb-8">
@@ -89,12 +89,12 @@ const Dashboard = () => {
                 </button>
               )}
             </div>
-            <div className="flex space-x-2">
-              <Link to="/" className="bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
-                <House size={20} />
+            <div className="flex space-x-2 ">
+              <Link to="/" className="flex justify-center items-center gap-2 bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
+                <House size={20} /> <span className="hidden sm:block">Home</span>
               </Link>
-              <Link to="/edit" className="bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
-                <FileText size={20} />
+              <Link to="/edit" className="flex justify-center items-center gap-2 bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
+                <FileText size={20} /> <span className="hidden sm:block">My Resume</span>
               </Link>
             </div>
           </div>

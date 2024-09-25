@@ -44,10 +44,10 @@ const Navbar = () => {
             </nav>
             <div className="hidden md:block">
               <Link
-                to="/dashboard" scrollToTop
+                to="/edit" scrollToTop
                 className="inline-flex bg-black items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-dark transition-colors"
               >
-                + My Jobs
+                + My Resume
               </Link>
             </div>
             <div className="flex md:hidden">
