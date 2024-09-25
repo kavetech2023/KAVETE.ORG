@@ -150,6 +150,7 @@ const Edit = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isSummaryLoading, setIsSummaryLoading] = useState(false);
+  const [isSkillsLoading, setIsSkillsLoading] = useState(false);
 
   const componentRef = useRef();
   const handlePrintRTP = useReactToPrint({
@@ -234,6 +235,23 @@ const Edit = () => {
     }
   };
 
+  const generateSkills = async () => {
+    setIsSkillsLoading(true);
+    try {
+      const prompt = ` 
+      
+      Please provide a comma-separated list of 5-10 relevant skills for ${saved || 'professional'}please just write the skills directly, no need to add any other information. `;
+
+      const response = await run(prompt);
+      setResumeData(prev => ({ ...prev, skills: response.replace(/\*/g, '').trim() }));
+    } catch (error) {
+      console.error("Error generating skills:", error);
+      alert("Failed to generate skills. Please try again.");
+    } finally {
+      setIsSkillsLoading(false);
+    }
+  };
+
   const generateFullResume = async () => {
     setIsLoading(true);
     try {
@@ -290,7 +308,7 @@ const Edit = () => {
               <House size={20} /> <span className="hidden sm:inline">Home</span>
             </Link>
             <Link to="/stats" className="flex items-center gap-2 bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
-              <FileText size={20} /> <span className="hidden sm:inline">Performance</span>
+              <FileText size={20} /> <span className="hidden sm:inline">Share</span>
             </Link>
           </div>
         </div>
@@ -324,7 +342,7 @@ const Edit = () => {
                 onChange={handleInputChange}
               />
               <input
-                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus: ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
                 name="phone"
                 placeholder="Phone"
                 value={resumeData.phone}
@@ -348,14 +366,24 @@ const Edit = () => {
                   {isSummaryLoading ? 'Generating...' : 'Get AI Summary'}
                 </button>
               </div>
-              <textarea
-                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
-                name="skills"
-                placeholder="Skills (comma-separated)"
-                value={resumeData.skills}
-                onChange={handleInputChange}
-                rows="3"
-              />
+              <div className="relative">
+                <textarea
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+                  name="skills"
+                  placeholder="Skills (comma-separated)"
+                  value={resumeData.skills}
+                  onChange={handleInputChange}
+                  rows="3"
+                />
+                <button
+                  className="absolute top-0 right-0 bg-green-500 text-white text-xs px-2 py-1 rounded-bl-md flex items-center"
+                  onClick={generateSkills}
+                  disabled={isSkillsLoading}
+                >
+                  {isSkillsLoading ? <Loader className="animate-spin mr-1" size={12} /> : null}
+                  {isSkillsLoading ? 'Generating...' : 'Get AI Skills'}
+                </button>
+              </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">Work Experience</h3>
                 {resumeData.experiences.map((experience, index) => (
