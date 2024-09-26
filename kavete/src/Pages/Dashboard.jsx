@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
-  const { allJobs, category, level, setJobLevel, setCategory, setPage, setSaved } = useContext(JobContext);
+  const { allJobs, category, level, setJobLevel, setCategory, setPage, setSaved, setLink } = useContext(JobContext);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
@@ -56,6 +56,7 @@ const Dashboard = () => {
 
   const handleGenerateResume = (job) => {
     setSaved(job.contents);
+    setLink(job.refs.landing_page);
     notify();
     setTimeout(() => {
       navigate('/edit');
@@ -63,7 +64,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       <ToastContainer position="top-right" autoClose={2000} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white shadow-md rounded-lg p-6 mb-8">
@@ -181,7 +182,7 @@ const Dashboard = () => {
                       onClick={() => handleGenerateResume(job)}
                       className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                      Generate Resume & Cover Letter
+                      Generate Resume with AI
                     </button>
                   )}
                 </div>

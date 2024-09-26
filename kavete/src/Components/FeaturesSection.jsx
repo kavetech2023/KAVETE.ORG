@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import demo from '../assets/demo.jpeg'
+import { Link } from 'react-router-dom'
 
 
 const FeatureItem = ({ text }) => (
@@ -61,26 +62,28 @@ const FeaturesSection = () => {
             className="lg:w-1/2"
           >
             <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Let our Ai
+              Let our AI
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> do all the work for you. </span>
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Experience a new level of productivity with our cutting-edge tools designed to streamline your work process and boost efficiency.
+              Experience a new level of productivity with our cutting-edge tools designed to streamline your job application process and boost efficiency.
             </p>
             <ul className="space-y-4 mb-10">
-              <FeatureItem text="AI-powered task prioritization" />
-              <FeatureItem text="Real-time collaboration tools" />
+              <FeatureItem text="AI-powered jobs suggestion" />
+              <FeatureItem text="Real-time resume editing" />
               <FeatureItem text="Advanced analytics dashboard" />
               <FeatureItem text="Customizable workflow templates" />
             </ul>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center space-x-2"
-            >
-              <span>Explore Features</span>
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            <Link to="/edit">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition duration-300 flex items-center space-x-2"
+              >
+                <span>Go to Resume Editor</span>
+                <ArrowRight className="w-5 h-5" />
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </div>

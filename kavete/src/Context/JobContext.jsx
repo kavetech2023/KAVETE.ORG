@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import {categories} from "../Data/categories.js";
+
 
 
 export const JobContext = createContext();
@@ -12,6 +12,7 @@ const JobContextProvider = (props) =>{
     const [page, setPage] = useState(1);
     const [level, setJobLevel] = useState("")
     const [saved, setSaved] = useState("");
+     const[link, setLink] = useState("")
     console.log(page);
    
 
@@ -44,6 +45,8 @@ const JobContextProvider = (props) =>{
         setJobLevel,
         saved,
         setSaved,
+        setLink,
+        link
     }
 
     return (

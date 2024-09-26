@@ -3,6 +3,7 @@ import Dashboard from "./Pages/Dashboard";
 import Home from "./Pages/Home";
 import Edit from "./Pages/Edit";
 import Stats from "./Pages/Stats";
+import AIChatBot from "./Components/AIChatBot";
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/edit" element={<Edit />} />
             <Route path="stats" element={<Stats />} />
           </Routes>
+          <AIChatBot />
         
       </div>
     </>

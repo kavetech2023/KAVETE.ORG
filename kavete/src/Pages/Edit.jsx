@@ -135,7 +135,7 @@ const EducationSection = ({ education, index, updateEducation, removeEducation }
 };
 
 const Edit = () => {
-  const { saved } = useContext(JobContext);
+  const { saved, link } = useContext(JobContext);
   const [resumeData, setResumeData] = useState({
     name: '',
     title: '',
@@ -218,11 +218,8 @@ const Edit = () => {
   const generateProfessionalSummary = async () => {
     setIsSummaryLoading(true);
     try {
-      const prompt = `Generate a professional summary for a ${resumeData.title || 'professional'} with the following details:
-      Name: ${resumeData.name}
-      Title: ${resumeData.title}
-      Skills: ${resumeData.skills}
-      Experience: ${resumeData.experiences.map(exp => `${exp.jobTitle} at ${exp.company}`).join(', ')}
+      const prompt = `Generate a professional summary for a ${saved || 'professional'} position.
+      
 
       Please provide a concise and impactful summary highlighting key strengths and experiences. Do not use bullet points or asterisks.`;
 
@@ -256,7 +253,7 @@ const Edit = () => {
   const generateFullResume = async () => {
     setIsLoading(true);
     try {
-      const prompt = `Create a comprehensive work-experience section for a ${saved || 'professional'} position. Include the following sections: Summary, Skills, and Work Experience (for each job provided). Format the content under each section into bullet points.
+      const prompt = `Create a comprehensive work-experience section for a ${saved || 'professional'} position.  Format the content into a maximum of 5 bullet points.
 
       Current resume data:
       ${JSON.stringify(resumeData, null, 2)}`;
@@ -309,8 +306,9 @@ const Edit = () => {
               <House size={20} /> <span className="hidden sm:inline">Home</span>
             </Link>
             <Link to="/stats" className="flex items-center gap-2 bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
-              <FileText size={20} /> <span className="hidden sm:inline">Share</span>
+              <FileText size={20} /> <span className="hidden sm:inline">Stats</span>
             </Link>
+           
           </div>
         </div>
       </div>
@@ -318,7 +316,7 @@ const Edit = () => {
       <div className="max-w-7xl mx-auto rounded-xl shadow-2xl overflow-hidden">
         <div className="flex flex-col md:flex-row">
           {/* Form */}
-          <div className="w-full md:w-1/2 p-8 bg-gray-50 mr-3 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
+          <div className="w-full md:w-1/3 p-8 bg-gray-50 mr-3 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
             <div className="space-y-4">
               <input
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
@@ -452,15 +450,20 @@ const Edit = () => {
                 onChange={handleInputChange}
                 rows="3"
               />
-              <motion.button
+              <div className="flex space-x-4 mt-4">
+                {link} link
+                </div>
+                <a href={link} target="_blank">
+                <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-green-500 text-white font-bold py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out disabled:opacity-50"
-                onClick={generateFullResume}
-                disabled={isLoading}
+                
               >
-                Share with Ai
+                Apply on the job site
               </motion.button>
+                </a>
+              
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -473,7 +476,7 @@ const Edit = () => {
           </div>
 
           {/* Preview */}
-          <div className="w-full md:w-1/2 p-8 bg-white overflow-y-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
+          <div className="w-full md:w-2/3 p-8 bg-white overflow-y-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
             <div className="border-2 border-gray-200 p-6 rounded-sm bg-white" ref={componentRef}>
               <h2 className="text-3xl font-bold mb-1 text-gray-800">{resumeData.name || 'Your Name'}</h2>
               <h3 className="text-xl text-gray-600 mb-2">{resumeData.title || 'Professional Title'}</h3>

@@ -29,12 +29,11 @@ const Hero = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight">
               AI, Jobs{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                Finder
+                Assistant
               </span>
             </h1>
             <p className="mt-6 text-xl text-gray-600">
-              Boost productivity and streamline your processes with our cutting-edge platform.
-              Experience the future of work today.
+             Experience the power of AI in finding the right jobs for you with our AI-powered job search assistant.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
             <Link to={"/dashboard"}>

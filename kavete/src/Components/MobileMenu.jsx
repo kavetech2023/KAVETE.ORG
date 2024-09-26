@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo.png'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
@@ -18,15 +19,15 @@ const MobileMenu = ({ open, setOpen }) => {
       {open && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }} 
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-50 bg-white md:hidden"
         >
-          <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div className="flex  h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center">
-                <img className="h-8 w-auto" src="/path/to/your/logo.png" alt="Logo" />
+                <img className="h-8 w-auto" src={logo} alt="Logo" />
               </Link>
             </div>
             <button
