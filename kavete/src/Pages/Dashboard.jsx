@@ -4,7 +4,7 @@ import { JobContext } from "../Context/JobContext";
 import { categories } from "../Data/categories";
 import { auth, provider } from './firebase.js';
 import { onAuthStateChanged, signInWithPopup, signOut } from '@firebase/auth';
-import { House, FileText, ChevronDown, ChevronUp } from 'lucide-react';
+import { House, FileText, ChevronDown, ChevronUp, AlertCircle } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -62,6 +62,16 @@ const Dashboard = () => {
       navigate('/edit');
     }, 2000);
   };
+
+  const ErrorMessage = () => (
+    <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8 rounded-lg shadow-md" role="alert">
+      <div className="flex items-center">
+        <AlertCircle className="h-6 w-6 mr-2" />
+        <p className="font-bold">Error</p>
+      </div>
+      <p className="mt-2">There was an error fetching jobs from the main database. Please try again later.</p>
+    </div>
+  );
 
   return (
     <div className="min-h-screen">
@@ -146,67 +156,73 @@ const Dashboard = () => {
           </form>
         </div>
 
-        <div className="space-y-6">
-          {allJobs?.results && allJobs.results.map((job, index) => (
-            <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-bold text-gray-900">{job.name}</h2>
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-500 text-white font-semibold text-sm">
-                    {index + 1}
-                  </span>
-                </div>
-                <p className="text-gray-600 mb-2"><span className="font-semibold">Company Location:</span> {job.locations.length > 0 ? job.locations[0].name : "No location available"}</p>
-                <p className="text-gray-600 mb-2"><span className="font-semibold">Company Name:</span> {job.company.name}</p>
-                <p className="text-gray-600 mb-4"><span className="font-semibold">Publication Date:</span> {new Date(job.publication_date).toLocaleDateString()}</p>
-                
-                <div className="mt-4 flex items-center space-x-4">
-                  <button
-                    onClick={() => toggleJobDetails(index)}
-                    className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    {activeIndex === index ? (
-                      <>
-                        <span>See less</span>
-                        <ChevronUp className="ml-2 h-4 w-4" />
-                      </>
-                    ) : (
-                      <>
-                        <span>See more</span>
-                        <ChevronDown className="ml-2 h-4 w-4" />
-                      </>
-                    )}
-                  </button>
-                  {activeIndex === index && (
+        {allJobs?.results && allJobs.results.length > 0 ? (
+          <div className="space-y-6">
+            {allJobs.results.map((job, index) => (
+              <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-bold text-gray-900">{job.name}</h2>
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-500 text-white font-semibold text-sm">
+                      {index + 1}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-2"><span className="font-semibold">Company Location:</span> {job.locations.length > 0 ? job.locations[0].name : "No location available"}</p>
+                  <p className="text-gray-600 mb-2"><span className="font-semibold">Company Name:</span> {job.company.name}</p>
+                  <p className="text-gray-600 mb-4"><span className="font-semibold">Publication Date:</span> {new Date(job.publication_date).toLocaleDateString()}</p>
+                  
+                  <div className="mt-4 flex items-center space-x-4">
                     <button
-                      onClick={() => handleGenerateResume(job)}
-                      className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      onClick={() => toggleJobDetails(index)}
+                      className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                      Generate Resume with AI
+                      {activeIndex === index ? (
+                        <>
+                          <span>See less</span>
+                          <ChevronUp className="ml-2 h-4 w-4" />
+                        </>
+                      ) : (
+                        <>
+                          <span>See more</span>
+                          <ChevronDown className="ml-2 h-4 w-4" />
+                        </>
+                      )}
                     </button>
-                  )}
+                    {activeIndex === index && (
+                      <button
+                        onClick={() => handleGenerateResume(job)}
+                        className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        Generate Resume with AI
+                      </button>
+                    )}
+                  </div>
                 </div>
+                {activeIndex === index && (
+                  <div className="px-6 pb-6">
+                    <div className="mt-4 prose max-w-none" dangerouslySetInnerHTML={{ __html: job.contents }} />
+                  </div>
+                )}
               </div>
-              {activeIndex === index && (
-                <div className="px-6 pb-6">
-                  <div className="mt-4 prose max-w-none" dangerouslySetInnerHTML={{ __html: job.contents }} />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <ErrorMessage />
+        )}
 
-        <div className="flex justify-center items-center space-x-2 mt-8">
-          {[1, 2, 3, 4, 5].map((pageNumber) => (
-            <button
-              key={pageNumber}
-              onClick={() => handlePageClick(pageNumber)}
-              className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-800 font-semibold text-sm hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              {pageNumber}
-            </button>
-          ))}
-        </div>
+        {allJobs?.results && allJobs.results.length > 0 && (
+          <div className="flex justify-center items-center space-x-2 mt-8">
+            {[1, 2, 3, 4, 5].map((pageNumber) => (
+              <button
+                key={pageNumber}
+                onClick={() => handlePageClick(pageNumber)}
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-800 font-semibold text-sm hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                {pageNumber}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
