@@ -1,7 +1,7 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { House, FileText, Plus, Minus, Loader } from "lucide-react";
+import { House, FileText, Plus, Minus, Loader, AlertCircle } from "lucide-react";
 import { JobContext } from "../Context/JobContext";
 import { useReactToPrint } from "react-to-print";
 import run from "../Config/gemini";
@@ -135,7 +135,7 @@ const EducationSection = ({ education, index, updateEducation, removeEducation }
 };
 
 const Edit = () => {
-  const { saved, link } = useContext(JobContext);
+  const { saved, setSaved, link } = useContext(JobContext);
   const [resumeData, setResumeData] = useState({
     name: '',
     title: '',
@@ -152,15 +152,28 @@ const Edit = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSummaryLoading, setIsSummaryLoading] = useState(false);
   const [isSkillsLoading, setIsSkillsLoading] = useState(false);
+  const [additionalInfo, setAdditionalInfo] = useState('');
+  const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
 
   const componentRef = useRef();
   const handlePrintRTP = useReactToPrint({
     content: () => componentRef.current,
   });
 
+  useEffect(() => {
+    if (!saved) {
+      setShowAdditionalInfo(true);
+    }
+  }, [saved]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setResumeData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleAdditionalInfoSubmit = () => {
+    setSaved(additionalInfo);
+    setShowAdditionalInfo(false);
   };
 
   const addExperience = () => {
@@ -210,7 +223,7 @@ const Edit = () => {
   };
 
   const generateSuggestion = async (jobTitle, company) => {
-    const prompt = `Generate a comprehensive work experience section for a resume that will match for a job being applied to ${saved} for a previous role. Include key responsibilities and achievements. Format the content as bullet points. Make it straight to the point, no title, no company name, no dates.`;
+    const prompt = `Generate a comprehensive work experience section for a resume that will match for a job being applied to ${saved || additionalInfo} for a previous role. Include key responsibilities and achievements. Format the content as bullet points. Make it straight to the point, no title, no company name, no dates.`;
     const response = await run(prompt);
     return response.split('\n').filter(line => line.trim() !== '').join('\n');
   };
@@ -218,10 +231,7 @@ const Edit = () => {
   const generateProfessionalSummary = async () => {
     setIsSummaryLoading(true);
     try {
-      const prompt = `Generate a professional summary for a ${saved || 'professional'} position.
-      
-
-      Please provide a concise and impactful summary highlighting key strengths and experiences. Do not use bullet points or asterisks.`;
+      const prompt = `Generate a professional summary for a ${saved || additionalInfo || 'professional'} position. Please provide a concise and impactful summary highlighting key strengths and experiences. Do not use bullet points or asterisks.`;
 
       const response = await run(prompt);
       setResumeData(prev => ({ ...prev, summary: response.replace(/\*/g, '').trim() }));
@@ -236,9 +246,7 @@ const Edit = () => {
   const generateSkills = async () => {
     setIsSkillsLoading(true);
     try {
-      const prompt = ` 
-      
-      Please provide a comma-separated list of 5-10 relevant skills for ${saved || 'professional'}please just write the skills directly, no need to add any other information. `;
+      const prompt = `Please provide a comma-separated list of 5-10 relevant skills for ${saved || additionalInfo || 'professional'}. Please just write the skills directly, no need to add any other information.`;
 
       const response = await run(prompt);
       setResumeData(prev => ({ ...prev, skills: response.replace(/\*/g, '').trim() }));
@@ -253,7 +261,7 @@ const Edit = () => {
   const generateFullResume = async () => {
     setIsLoading(true);
     try {
-      const prompt = `Create a comprehensive work-experience section for a ${saved || 'professional'} position.  Format the content into a maximum of 5 bullet points.
+      const prompt = `Create a comprehensive work-experience section for a ${saved || additionalInfo || 'professional'} position. Format the content into a maximum of 5 bullet points.
 
       Current resume data:
       ${JSON.stringify(resumeData, null, 2)}`;
@@ -308,10 +316,32 @@ const Edit = () => {
             <Link to="/stats" className="flex items-center gap-2 bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-200">
               <FileText size={20} /> <span className="hidden sm:inline">Stats</span>
             </Link>
-           
           </div>
         </div>
       </div>
+
+      {showAdditionalInfo && (
+        <div className="bg-white shadow-md rounded-lg p-6 mb-8 max-w-7xl mx-auto">
+          <div className="flex items-center mb-4">
+            <AlertCircle className="text-yellow-500 mr-2" size={24} />
+            <h2 className="text-lg font-semibold">Copy and paste any job desctiption here.</h2>
+          </div>
+          <p className="mb-4">Please provide some information about the job you're applying for or your desired role:</p>
+          <textarea
+            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+            rows="4"
+            value={additionalInfo}
+            onChange={(e) => setAdditionalInfo(e.target.value)}
+            placeholder="E.g., Job title, key responsibilities, required skills, etc."
+          />
+          <button
+            className="mt-4 bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+            onClick={handleAdditionalInfoSubmit}
+          >
+            Submit
+          </button>
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto rounded-xl shadow-2xl overflow-hidden">
         <div className="flex flex-col md:flex-row">
@@ -350,7 +380,7 @@ const Edit = () => {
               <input
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
                 name="linkedin"
-                placeholder="Linked In"
+                placeholder="LinkedIn"
                 value={resumeData.linkedin}
                 onChange={handleInputChange}
               />
@@ -450,19 +480,15 @@ const Edit = () => {
                 onChange={handleInputChange}
                 rows="3"
               />
-              <div className="flex space-x-4 mt-4">
-                {link} link
-                </div>
-                <a href={link} target="_blank">
-                <motion.button
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-green-500 text-white font-bold py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out disabled:opacity-50"
-                
+                onClick={generateFullResume}
+                disabled={isLoading}
               >
-                Apply on the job site
+                {isLoading ? 'Generating...' : 'Generate Full Resume with AI'}
               </motion.button>
-                </a>
               
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -472,6 +498,18 @@ const Edit = () => {
               >
                 Print Resume
               </motion.button>
+              
+              {link && (
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                  >
+                    Apply on the job site
+                  </motion.button>
+                </a>
+              )}
             </div>
           </div>
 
@@ -481,9 +519,9 @@ const Edit = () => {
               <h2 className="text-3xl font-bold mb-1 text-gray-800">{resumeData.name || 'Your Name'}</h2>
               <h3 className="text-xl text-gray-600 mb-2">{resumeData.title || 'Professional Title'}</h3>
               <div className="flex items-center space-x-4 mb-4 text-sm text-gray-600">
-                {resumeData.email && <span className="border-r-black">{resumeData.email}</span>}
+                {resumeData.email && <span>{resumeData.email}</span>}
                 {resumeData.phone && <span>{resumeData.phone}</span>}
-                {resumeData.linkedin && <a href={resumeData.linkedin}>{resumeData.linkedin}</a>}
+                {resumeData.linkedin && <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer">{resumeData.linkedin}</a>}
               </div>
               <hr className="my-4 border-gray-300" />
               {resumeData.summary && (
