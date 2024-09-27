@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Edit from "./Pages/Edit";
 import Stats from "./Pages/Stats";
 import AIChatBot from "./Components/AIChatBot";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/edit" element={<Edit />} />
             <Route path="stats" element={<Stats />} />
+            <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           </Routes>
           <AIChatBot />
         

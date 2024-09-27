@@ -27,8 +27,7 @@ const JobContextProvider = (props) =>{
           console.log('Jobs fetched:', response.results, category);
         } catch (error) {
           console.error('Error fetching jobs:', error);
-          setAllJobs({ error: 'Failed to fetch jobs, server overload' });
-          setJobs([]);
+          alert('Failed to fetch jobs, server overload');
         }
       };
 
