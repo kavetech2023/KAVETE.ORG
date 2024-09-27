@@ -60,8 +60,8 @@ const PrivacyPolicy = () => {
             If you have any questions about this Privacy Policy, please contact us at:
           </p>
           <p className="text-base text-gray-700">
-            Email: privacy@example.com<br />
-            Address: 123 Privacy Street, Securetown, ST 12345
+            Email: kavetekevin@gmail.com<br />
+            Address: Thika road, Nairobi, Kenya
           </p>
         </div>
       </div>
